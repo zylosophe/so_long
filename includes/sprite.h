@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   sprite.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 16:04:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/11 13:23:02 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/03/07 22:13:20 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/03/11 16:26:48 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#ifndef SPRITE_H
+# define SPRITE_H
 
-# include "libtf.h"
+# include "data_assets.h"
+# include "data_sprites.h"
 
-void	err(t_const_string msg);
-void	err_perror(t_const_string s);
-void	err_perror_str(t_const_string s, t_const_string msg);
-void	finish(void);
+typedef struct s_sprite
+{
+	const t_spriteinfo	*info;
+	int					index;
+}						t_sprite;
+
+t_sprite	sprite_init(t_spriteid spr);
+
+void		sprite_draw(int x, int y, t_sprite *spr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:05:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/06 13:08:51 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:03:37 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	display_init(void)
 		i++;
 	}
 	g_screenbuf.img = mlx_new_image(g_env.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	if (!g_screenbuf.img)
+		err("on mlx_new_image()");
 	g_screenbuf.width = WINDOW_WIDTH;
 	g_screenbuf.height = WINDOW_HEIGHT;
 	g_screenbuf.data = get_data_addr(g_screenbuf.img);

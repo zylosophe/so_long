@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/06 16:18:09 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:50:28 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "env.h"
 #include "error.h"
 #include "display.h"
-#include "assets.h"
+#include "data_assets.h"
+#include "room.h"
 
 int	expose_hook(void)
 {
@@ -35,7 +36,6 @@ int	loop_hook(void)
 
 int	main(void)
 {
-	g_env.mc = NULL;
 	g_env.mc = mem_newclass(err);
 	g_env.mlx = mlx_init();
 	if (!g_env.mlx)
@@ -45,6 +45,8 @@ int	main(void)
 			WINDOW_TITLE);
 	if (!g_env.win)
 		err("mlx_new_window() failed");
+	g_env.room = room_fromfile("room/room.ber");
+	room_draw(g_env.room);
 	mlx_expose_hook(g_env.win, expose_hook, NULL);
 	mlx_hook(g_env.win, 17, 1L << 0, close_hook, NULL);
 	mlx_loop_hook(g_env.mlx, loop_hook, NULL);

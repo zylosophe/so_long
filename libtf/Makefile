@@ -11,7 +11,7 @@ PRINTF_CODE = \
 		ft_strjoin stream1 stream2 utils1 utils2
 PRINTF_SRCS = tf_printf/src/
 PRINTF_INCLUDES = ./ tf_printf/include/
-WHAT = LIBTF v4.2
+WHAT = LIBTF v7
 USED = malloc() free() write()
 
 # It works and I probably won't change it for the rest of my life
@@ -21,18 +21,16 @@ PRINTF_C_FILES = $(addsuffix .c,$(addprefix $(PRINTF_SRCS),$(PRINTF_CODE)))
 PRINTF_O_FILES = $(addsuffix .o,$(addprefix $(PRINTF_SRCS),$(PRINTF_CODE)))
 ifdef DEBUG
 	CC = cc -Wall -Wextra -Werror -g
-	FINISH_MSG = "\e[7;33m  $(WHAT) compiled! (debug)  \e[0m"
+	FINISH_MSG = "| $(WHAT) compiled! (debug)"
 else
 	CC = cc -Wall -Wextra -Werror
-	FINISH_MSG = "\e[7;36m  $(WHAT) compiled!  \e[0m"
+	FINISH_MSG = "| $(WHAT) compiled!"
 endif
 AR = ar rcs
 
 all : $(NAME)
-	@echo ""
 	@echo $(FINISH_MSG)
-	@echo "\e[36mFunctions used: $(USED) \e[0m"
-	@echo ""
+	@echo "| Functions used: $(USED)"
 
 debug :
 	make DEBUG=yes

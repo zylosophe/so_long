@@ -1,23 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.h                                            :+:      :+:    :+:   */
+/*   room.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 16:04:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/11 13:23:02 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/03/13 14:11:13 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_H
-# define ERROR_H
+#ifndef ROOM_H
+# define ROOM_H
 
+# include "sprite.h"
 # include "libtf.h"
 
-void	err(t_const_string msg);
-void	err_perror(t_const_string s);
-void	err_perror_str(t_const_string s, t_const_string msg);
-void	finish(void);
+typedef struct s_object
+{
+	t_sprite	spr;
+}				t_object;
+
+typedef struct s_room
+{
+	int			width;
+	int			height;
+	t_sprite	*surfaces;
+	t_object	**objects;
+	t_memclass	mc;
+}				t_room;
+
+typedef struct s_roomcase
+{
+	char		c;
+	t_spriteid	surface_spr;
+}				t_roomcase;
+
+t_room	room_fromfile(t_const_string path);
+
+void	room_draw(t_room room);
+
+void	room_free(t_room room);
 
 #endif

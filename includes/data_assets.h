@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assets.h                                           :+:      :+:    :+:   */
+/*   data_assets.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/06 13:42:57 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/13 15:43:09 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ASSETS_H
-# define ASSETS_H
+#ifndef DATA_ASSETS_H
+# define DATA_ASSETS_H
 
 # include <stdint.h>
-# include "display.h"
+# include "libtf.h"
 
 # define NB_ASSETS 36
+
+typedef uint32_t			t_pixel;
+typedef uint8_t				t_component;
+
+typedef struct s_asset
+{
+	t_const_string	src;
+	int				limit_left;
+	int				limit_right;
+	int				limit_up;
+	int				limit_down;
+	bool			opaque;
+}	t_assetinfo;
+
+extern const t_assetinfo	g_assetsmap[NB_ASSETS];
 
 /**
  * Index for each asset. Must be in the same order than g_assetsmap.
@@ -61,7 +76,7 @@ typedef enum e_assetid
 	OBJECT_EXIT_USING2_4,
 	OBJECT_EXIT_USING2_5,
 	OBJECT_EXIT_USING2_6,
-	OBJECT_EXIT_USING2_7,
+	OBJECT_EXIT_USING2_7
 }	t_assetid;
 
 typedef enum e_direction

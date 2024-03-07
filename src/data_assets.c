@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assets.c                                           :+:      :+:    :+:   */
+/*   data_assets.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:27:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/29 18:05:41 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:54:15 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "display.h"
+#include "data_assets.h"
 
 /**
  * Path of each asset relative to assets/, without extension.
  */
-const t_asset	g_assetsmap[NB_ASSETS] = {
+const t_assetinfo	g_assetsmap[NB_ASSETS] = {
 {"floor/1", 50, 100, 50, 100, true},
 {"floor/2", 50, 100, 50, 100, true},
 	// WALL

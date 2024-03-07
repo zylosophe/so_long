@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:32:08 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/06 14:20:39 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:53:57 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,16 @@
 
 # include <stdint.h>
 # include "libtf.h"
-# include "assets.h"
-
-typedef uint32_t		t_pixel;
-typedef uint8_t			t_component;
-
-typedef struct s_asset
-{
-	t_const_string	src;
-	int				limit_left;
-	int				limit_right;
-	int				limit_up;
-	int				limit_down;
-	bool			opaque;
-}	t_asset;
+# include "data_assets.h"
 
 typedef struct s_image
 {
-	int		width;
-	int		height;
-	t_asset	asset;
-	void	*img;
-	t_pixel	*data;
-}			t_image;
-
-extern const t_asset	g_assetsmap[];
+	int			width;
+	int			height;
+	t_assetinfo	asset;
+	void		*img;
+	t_pixel		*data;
+}				t_image;
 
 /**
  * Load all assets at the start of the program and prepare the screen buffer.

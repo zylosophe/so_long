@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:07:59 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/23 14:54:14 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:12:03 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,14 @@ typedef void		*t_memclass;
  * Return NULL on error.
  */
 t_memclass			mem_newclass(t_err *err);
+
+/**
+ * Create a t_memclass and add it to parent.
+ * It means if we freeall(parent), this mc is freeall too.
+ * Possible errors: "alloc error"
+ * Return NULL on error.
+ */
+t_memclass			mem_subclass(t_err *err, t_memclass parent);
 
 /**
  * Alloc memory of the class 'mc' and of the size 'size'.

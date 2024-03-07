@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:08:16 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/23 13:27:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:03:06 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ t_memclass	mem_newclass(t_err *err)
 {
 	t_memclass_in	r;
 
-	r = malloc(sizeof(t_memclass_in));
+	r = malloc(sizeof(struct s_memclass_in));
 	if (!r)
 		return ((*err)("alloc error"), NULL);
 	r->first = NULL;
+	r->parent_element = NULL;
 	return (r);
 }
 
@@ -37,8 +38,9 @@ void	*mem_alloc(t_err *err, t_memclass mc, size_t size)
 		return ((*err)("alloc error"), NULL);
 	r = create_address_with_element(new_element, size);
 	if (!r)
-		return ((*err)("alloc error"), NULL);
+		return (free(new_element), (*err)("alloc error"), NULL);
 	new_element->address = r;
+	new_element->subclass = NULL;
 	new_element->next = mc_in->first;
 	if (new_element->next)
 		new_element->next->previous = new_element;
@@ -60,9 +62,14 @@ void	mem_freeall(t_memclass mc)
 	{
 		next = el->next;
 		free_address_with_element(el->address);
-		free(el);
+		if (el->subclass)
+			mem_freeall(el->subclass);
+		else
+			free(el);
 		el = next;
 	}
+	if (((t_memclass_in) mc)->parent_element)
+		freeelement(((t_memclass_in) mc)->parent_element);
 	free(mc);
 }
 
@@ -74,11 +81,30 @@ void	mem_free(void *address)
 		return ;
 	el = get_address_element(address);
 	free_address_with_element(address);
-	if (el->previous)
-		el->previous->next = el->next;
-	else
-		el->mc->first = el->next;
-	if (el->next)
-		el->next->previous = el->previous;
-	free(el);
+	freeelement(el);
+}
+
+t_memclass	mem_subclass(t_err *err, t_memclass parent)
+{
+	t_memclass_in	r;
+	t_memclass_in	parent_in;
+	t_element		*new_element;
+
+	parent_in = (t_memclass_in) parent;
+	r = mem_newclass(err);
+	if (!r)
+		return (err("alloc error"), NULL);
+	new_element = malloc(sizeof(t_element));
+	if (!new_element)
+		return (err("alloc error"), mem_freeall(r), NULL);
+	new_element->address = NULL;
+	new_element->subclass = r;
+	new_element->next = parent_in->first;
+	if (new_element->next)
+		new_element->next->previous = new_element;
+	new_element->previous = NULL;
+	new_element->mc = parent;
+	parent_in->first = new_element;
+	r->parent_element = new_element;
+	return ((t_memclass) r);
 }
