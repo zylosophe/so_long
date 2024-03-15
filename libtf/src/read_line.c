@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:39:50 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/23 14:16:55 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:29:49 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	*free_and_return(
 {
 	if (buf)
 	{
-		mem_free(*buf);
+		mem_freeall((*buf)->mc);
 		*buf = NULL;
 	}
 	if (string)

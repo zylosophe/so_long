@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/13 16:37:06 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:42:55 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 #include "room_utils.h"
 
 static bool	room_fromfile2(
-				int fd, t_memclass mc, t_const_string path, t_sprite **surface)
+				int fd, t_const_string path, int *i, t_room *room)
 {
 	t_const_string		line;
+	t_roomcase			*roomcase;
+	const t_memclass	mc = mem_subclass(err, g_env.mc);
 
 	line = read_line(err_remember, mc, fd);
 	if (err_get())
@@ -29,10 +31,19 @@ static bool	room_fromfile2(
 		return (false);
 	while (*line && *line != '\n')
 	{
-		**surface = sprite_init(getroomcase(path, *line)->surface_spr);
+		roomcase = getroomcase(path, *line);
+		room->surfaces[*i] = sprite_init(roomcase->surface_spr);
+		if (roomcase->object)
+		{
+			room->objects[*i] = mem_alloc(err, room->mc, sizeof(t_object));
+			*(room->objects[*i]) = roomcase->object(room->mc);
+		}
+		else
+			room->objects[*i] = NULL;
 		line++;
-		(*surface)++;
+		(*i)++;
 	}
+	mem_freeall(mc);
 	return (true);
 }
 
@@ -40,18 +51,18 @@ t_room	room_fromfile(t_const_string path)
 {
 	t_room				r;
 	int					fd;
-	t_sprite			*surface;
 	const t_memclass	mc = mem_subclass(err, g_env.mc);
+	int					i;
 
 	room_getsize(mc, &r, path);
 	r.mc = mem_subclass(err, g_env.mc);
-	r.surfaces = mem_alloc(err, r.mc, r.width * r.height * sizeof(t_sprite));
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		err_perror(path);
-	surface = r.surfaces;
-	while (surface - r.surfaces < r.width * r.height
-		&& room_fromfile2(fd, mc, path, &surface))
+	r.surfaces = mem_alloc(err, r.mc, r.width * r.height * sizeof(t_sprite));
+	r.objects = mem_alloc(err, r.mc, r.width * r.height * sizeof(t_object *));
+	i = 0;
+	while (room_fromfile2(fd, path, &i, &r))
 		;
 	mem_freeall(mc);
 	return (r);
@@ -59,16 +70,26 @@ t_room	room_fromfile(t_const_string path)
 
 void	room_draw(t_room room)
 {
-	int	x;
-	int	y;
+	int			x;
+	int			y;
+	t_object	*obj;
 
 	y = -1;
 	while (++y < room.height)
 	{
 		x = -1;
 		while (++x < room.width)
-		{
 			sprite_draw(x * 50, y * 50, room.surfaces + y * room.width + x);
+	}
+	y = -1;
+	while (++y < room.height)
+	{
+		x = -1;
+		while (++x < room.width)
+		{
+			obj = room.objects[y * room.width + x];
+			if (obj)
+				obj->type.draw(obj, x * 50, y * 50);
 		}
 	}
 }

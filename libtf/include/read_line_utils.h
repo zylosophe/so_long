@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:36:49 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/23 14:17:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:21:52 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
 
 typedef struct s_buf
 {
-	int		size;
-	char	str[BUFFER_SIZE];
-}			t_buf;
+	t_memclass	mc;
+	int			size;
+	char		str[BUFFER_SIZE];
+}				t_buf;
 
 typedef struct s_string2
 {

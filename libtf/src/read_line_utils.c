@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:28:19 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/23 14:18:00 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:53:04 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 int	create_empty_buf(t_buf **result)
 {
-	const t_errmc	errmc = setget_errmc(NULL, NULL);
+	const t_errmc		errmc = setget_errmc(NULL, NULL);
+	const t_memclass	mc = mem_newclass(errmc.err);
 
-	*result = mem_alloc(errmc.err, errmc.mc, sizeof(t_buf));
+	*result = mem_alloc(errmc.err, mc, sizeof(t_buf));
 	if (!*result)
 		return (0);
 	(*result)->size = 0;
+	(*result)->mc = mc;
 	return (1);
 }
 

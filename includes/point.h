@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_sprites.h                                     :+:      :+:    :+:   */
+/*   point.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/15 18:49:12 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/03/15 15:05:03 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/03/15 19:38:46 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_SPRITES_H
-# define DATA_SPRITES_H
+#ifndef POINT_H
+# define POINT_H
 
-# include "data_assets.h"
-
-# define NB_SPRITES 3
-
-typedef struct s_spriteinfo
+typedef struct s_point
 {
-	t_assetid	first_frame;
-	int			nb_frames;
-	int			origin_x;
-	int			origin_y;
-}				t_spriteinfo;
+	int	x;
+	int	y;
+}		t_point;
 
-extern const t_spriteinfo	g_spritesmap[NB_SPRITES];
-
-typedef enum e_spriteid
-{
-	CASE_WALL,
-	CASE_FLOOR,
-	SPR_SNAS_DOWN
-}	t_spriteid;
+/*
+t_point	point_init(int x, int y);
+void	point_addto(t_point *dest, t_point src);
+*/
 
 #endif

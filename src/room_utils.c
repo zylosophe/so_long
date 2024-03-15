@@ -6,17 +6,19 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/13 16:55:56 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:55:48 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "room_utils.h"
 #include "error.h"
+#include "object.h"
 
 static t_roomcase	g_roomcases[] = {
-{c: '0', surface_spr: CASE_FLOOR},
-{c: '1', surface_spr: CASE_WALL},
+{c: '0', surface_spr: CASE_FLOOR, object: NULL},
+{c: '1', surface_spr: CASE_WALL, object: NULL},
+{c: 'P', surface_spr: CASE_FLOOR, object: snas_init},
 {c: '\0'}
 };
 

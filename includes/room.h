@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/13 14:11:13 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:51:14 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 
 # include "sprite.h"
 # include "libtf.h"
-
-typedef struct s_object
-{
-	t_sprite	spr;
-}				t_object;
+# include "object.h"
 
 typedef struct s_room
 {
@@ -32,9 +28,10 @@ typedef struct s_room
 
 typedef struct s_roomcase
 {
-	char		c;
-	t_spriteid	surface_spr;
-}				t_roomcase;
+	char			c;
+	t_spriteid		surface_spr;
+	t_object_init	object;
+}					t_roomcase;
 
 t_room	room_fromfile(t_const_string path);
 

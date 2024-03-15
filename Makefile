@@ -5,7 +5,7 @@ INCLUDES = includes/
 CODE = main error env \
 		data_assets data_sprites \
 		display1 display2 display_utils sprite \
-		room room_utils
+		room room_utils object
 LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a
 LIBRARIES_LINK = mlx
