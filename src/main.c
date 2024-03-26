@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/11 15:50:28 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/26 13:26:58 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "display.h"
 #include "data_assets.h"
 #include "room.h"
+#include "input.h"
+#include <X11/Xlib.h>
 
 int	expose_hook(void)
 {
@@ -25,12 +27,14 @@ int	expose_hook(void)
 
 int	close_hook(void)
 {
+	mlx_do_key_autorepeaton(g_env.mlx);
 	finish();
 	return (0);
 }
 
 int	loop_hook(void)
 {
+	tf_printf("%i %i %i %i\n", g_env.up, g_env.down, g_env.left, g_env.right);
 	return (0);
 }
 
@@ -48,7 +52,11 @@ int	main(void)
 	g_env.room = room_fromfile("room/room.ber");
 	room_draw(g_env.room);
 	mlx_expose_hook(g_env.win, expose_hook, NULL);
-	mlx_hook(g_env.win, 17, 1L << 0, close_hook, NULL);
+	mlx_hook(g_env.win, DestroyNotify, StructureNotifyMask, close_hook, NULL);
 	mlx_loop_hook(g_env.mlx, loop_hook, NULL);
+	mlx_do_key_autorepeatoff(g_env.mlx);
+	input_init();
+	mlx_hook(g_env.win, KeyPress, KeyPressMask, key_press_hook, NULL);
+	mlx_hook(g_env.win, KeyRelease, KeyReleaseMask, key_release_hook, NULL);
 	mlx_loop(g_env.mlx);
 }

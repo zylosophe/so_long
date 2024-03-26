@@ -2,7 +2,7 @@
 NAME = so_long
 SRCS = src/
 INCLUDES = includes/
-CODE = main error env \
+CODE = main error env input \
 		data_assets data_sprites \
 		display1 display2 display_utils sprite \
 		room room_utils object
