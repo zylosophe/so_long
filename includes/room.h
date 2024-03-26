@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/15 18:51:14 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:06:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_roomcase
 }					t_roomcase;
 
 t_room	room_fromfile(t_const_string path);
+
+void	room_loop(t_room room);
 
 void	room_draw(t_room room);
 

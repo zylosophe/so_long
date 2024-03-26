@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/26 15:48:24 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:50:14 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # define WINDOW_WIDTH 600
 # define WINDOW_HEIGHT 400
 # define WINDOW_TITLE "undretale"
-# define FPS 10
+# define FPS 20
+# define WALK_STEPS_NB 4
 
 typedef struct s_env
 {

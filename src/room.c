@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/25 14:42:55 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:53:28 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,35 @@ void	room_draw(t_room room)
 				obj->type.draw(obj, x * 50, y * 50);
 		}
 	}
+}
+
+void	room_loop(t_room room)
+{
+	t_point				pos;
+	t_object			*object;
+	t_point				move;
+	const t_memclass	mc = mem_subclass(err, g_env.mc);
+	t_list				objects_done;
+
+	objects_done = list_createempty(mc);
+	pos.x = 0;
+	while (pos.x < room.width)
+	{
+		pos.y = 0;
+		while (pos.y < room.height)
+		{
+			object = room.objects[pos.y * room.height + pos.x];
+			if (object && !isinlist(object, objects_done))
+			{
+				move = object->type.loop(object, pos);
+				moveobject(room, pos, move);
+				list_add(err, &objects_done, object);
+			}
+			pos.y++;
+		}
+		pos.x++;
+	}
+	mem_freeall(mc);
 }
 
 void	room_free(t_room room)

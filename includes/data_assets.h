@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/13 15:43:09 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:09:30 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ typedef enum e_direction
 	DOWN,
 	UP,
 	LEFT,
-	RIGHT
+	RIGHT,
+	NO_DIRECTION
 }	t_direction;
 
 # define OBJECT_SNAS OBJECT_SNAS_DOWN

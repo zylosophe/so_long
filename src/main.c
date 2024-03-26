@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/26 15:59:54 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:42:18 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,12 @@ int	close_hook(void)
 	return (0);
 }
 
-static bool	g_tac = false;
-
 static void	loop(void)
 {
-	if (g_tac)
-		print_line(err, 1, " tac");
-	else
-		print_line(err, 1, "tic");
-	g_tac = !g_tac;
+	room_loop(g_env.room);
+	display_erase();
+	room_draw(g_env.room);
+	display_flush();
 }
 
 int	loop_hook(void)

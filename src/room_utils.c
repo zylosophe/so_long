@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/15 18:55:48 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:54:58 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,31 @@ t_roomcase	*getroomcase(t_const_string path, char c)
 	}
 	err_perror_str(path, "unknown char");
 	return (NULL);
+}
+
+void	moveobject(t_room room, t_point start, t_point move)
+{
+	t_point	end;
+
+	end = start;
+	point_addto(&end, move);
+	if (start.x == end.x && start.y == end.y)
+		return ;
+	room.objects[end.y * room.height + end.x]
+		= room.objects[start.y * room.height + start.x];
+	room.objects[start.y * room.height + start.x] = NULL;
+}
+
+bool	isinlist(void *addr, t_list list)
+{
+	t_list_element	*el;
+
+	el = list.first;
+	while (el)
+	{
+		if (el->value == addr)
+			return (true);
+		el = el->next;
+	}
+	return (false);
 }
