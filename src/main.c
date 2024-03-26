@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/26 13:26:58 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/26 15:59:54 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "data_assets.h"
 #include "room.h"
 #include "input.h"
+#include "timedloop.h"
 #include <X11/Xlib.h>
 
 int	expose_hook(void)
@@ -32,9 +33,20 @@ int	close_hook(void)
 	return (0);
 }
 
+static bool	g_tac = false;
+
+static void	loop(void)
+{
+	if (g_tac)
+		print_line(err, 1, " tac");
+	else
+		print_line(err, 1, "tic");
+	g_tac = !g_tac;
+}
+
 int	loop_hook(void)
 {
-	tf_printf("%i %i %i %i\n", g_env.up, g_env.down, g_env.left, g_env.right);
+	timedloop(loop);
 	return (0);
 }
 
