@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 15:52:13 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:29:12 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 static t_direction	snas_brain(void)
 {
-	if (g_env.up && !g_env.down)
+	if (g_env.input[UP] && !g_env.input[DOWN])
 		return (UP);
-	if (g_env.down && !g_env.up)
+	if (g_env.input[DOWN] && !g_env.input[UP])
 		return (DOWN);
-	if (g_env.left && !g_env.right)
+	if (g_env.input[LEFT] && !g_env.input[RIGHT])
 		return (LEFT);
-	if (g_env.right && !g_env.left)
+	if (g_env.input[RIGHT] && !g_env.input[LEFT])
 		return (RIGHT);
 	return (NO_DIRECTION);
 }

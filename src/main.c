@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/26 16:42:18 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:33:10 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	close_hook(void)
 
 static void	loop(void)
 {
+	input_loop();
 	room_loop(g_env.room);
 	display_erase();
 	room_draw(g_env.room);
@@ -64,7 +65,6 @@ int	main(void)
 	mlx_hook(g_env.win, DestroyNotify, StructureNotifyMask, close_hook, NULL);
 	mlx_loop_hook(g_env.mlx, loop_hook, NULL);
 	mlx_do_key_autorepeatoff(g_env.mlx);
-	input_init();
 	mlx_hook(g_env.win, KeyPress, KeyPressMask, key_press_hook, NULL);
 	mlx_hook(g_env.win, KeyRelease, KeyReleaseMask, key_release_hook, NULL);
 	mlx_loop(g_env.mlx);

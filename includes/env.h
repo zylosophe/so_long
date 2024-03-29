@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/28 12:50:14 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:27:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ typedef struct s_env
 	void		*mlx;
 	void		*win;
 	t_room		room;
-
-	bool		up;
-	bool		down;
-	bool		left;
-	bool		right;
+	bool		input[4];
 }				t_env;
 
 extern t_env	g_env;
