@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/28 17:54:58 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 17:21:17 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static t_roomcase	g_roomcases[] = {
 {c: '0', surface_spr: CASE_FLOOR, object: NULL},
-{c: '1', surface_spr: CASE_WALL, object: NULL},
+{c: '1', surface_spr: CASE_FLOOR, object: wall_init},
 {c: 'P', surface_spr: CASE_FLOOR, object: snas_init},
 {c: '\0'}
 };
@@ -82,9 +82,9 @@ void	moveobject(t_room room, t_point start, t_point move)
 	point_addto(&end, move);
 	if (start.x == end.x && start.y == end.y)
 		return ;
-	room.objects[end.y * room.height + end.x]
-		= room.objects[start.y * room.height + start.x];
-	room.objects[start.y * room.height + start.x] = NULL;
+	room.objects[end.y * room.width + end.x]
+		= room.objects[start.y * room.width + start.x];
+	room.objects[start.y * room.width + start.x] = NULL;
 }
 
 bool	isinlist(void *addr, t_list list)

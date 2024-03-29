@@ -6,7 +6,7 @@ CODE = main error env input timedloop \
 		data_assets data_sprites \
 		display1 display2 display_utils sprite \
 		room room_utils point \
-		object_character object_snas
+		object_character object_snas object_wall
 LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a
 LIBRARIES_LINK = mlx

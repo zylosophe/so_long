@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 14:32:57 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:02:13 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ const t_spriteinfo	g_spritesmap[NB_SPRITES] = {
 {OBJECT_SNAS_UP, 1, 50, 50, ANIMATION},
 {OBJECT_SNAS_LEFT, 1, 50, 50, ANIMATION},
 {OBJECT_SNAS_RIGHT, 1, 50, 50, ANIMATION},
+{WALL_INNER, 1, 50, 50, ANIMATION},
 };

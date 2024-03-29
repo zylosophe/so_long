@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 13:56:58 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:51:38 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ t_point	character_loop(
 {
 	t_direction			move;
 
-	(void)pos;
 	move = NO_DIRECTION;
 	if (character->walk_remaining_steps)
 		if (!--character->walk_remaining_steps)
@@ -62,13 +61,16 @@ t_point	character_loop(
 		move = brain();
 		if (move != NO_DIRECTION)
 		{
-			character->walk_remaining_steps = WALK_STEPS_NB - 1;
 			character->direction = move;
+			if (room_canwalk(g_env.room, character, pos))
+			{
+				character->walk_remaining_steps = WALK_STEPS_NB - 1;
+				character_initstate(character);
+				return (point_fromdirection(character->direction));
+			}
 			character_initstate(character);
 		}
 	}
-	if (move != NO_DIRECTION)
-		return (point_fromdirection(character->direction));
 	return (point_init(0, 0));
 }
 

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 13:55:24 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:02:34 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "data_assets.h"
 
-# define NB_SPRITES 7
+# define NB_SPRITES 8
 
 typedef enum e_assettype
 {
@@ -43,6 +43,7 @@ typedef enum e_spriteid
 	SPR_SNAS_UP,
 	SPR_SNAS_LEFT,
 	SPR_SNAS_RIGHT,
+	SPR_WALL,
 }	t_spriteid;
 
 #endif

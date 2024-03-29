@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 13:54:55 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:52:13 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ t_object	snas_init(t_memclass mc)
 	data = mem_alloc(err, mc, sizeof(t_snas_data));
 	data->character = character_init((t_character_sprites *)&sprites);
 	r.data = data;
+	r.solid = true;
 	return (r);
 }

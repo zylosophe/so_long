@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/26 16:06:02 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:44:11 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,18 @@ typedef struct s_roomcase
 	t_object_init	object;
 }					t_roomcase;
 
-t_room	room_fromfile(t_const_string path);
+t_room		room_fromfile(t_const_string path);
 
-void	room_loop(t_room room);
+void		room_loop(t_room room);
 
-void	room_draw(t_room room);
+void		room_draw(t_room room);
 
-void	room_free(t_room room);
+void		room_free(t_room room);
+
+t_object	*room_getobjectfaced(
+				t_room room, t_character *character, t_point pos);
+
+bool		room_canwalk(
+				t_room room, t_character *character, t_point pos);
 
 #endif

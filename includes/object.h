@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:58:25 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/28 17:51:55 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/29 15:29:58 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_object
 {
 	t_objecttype	type;
 	void			*data;
-}						t_object;
+	bool			solid;
+}					t_object;
 
 typedef t_object		(*t_object_init)(t_memclass);
 
@@ -66,5 +67,13 @@ typedef struct s_snas_data
 }				t_snas_data;
 
 t_object		snas_init(t_memclass mc);
+
+/**** WALL ****/
+typedef struct s_wall_data
+{
+	t_sprite	spr;
+}				t_wall_data;
+
+t_object		wall_init(t_memclass mc);
 
 #endif
