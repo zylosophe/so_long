@@ -2,11 +2,18 @@
 NAME = so_long
 SRCS = src/
 INCLUDES = includes/
-CODE = main error env input timedloop \
-		data_assets data_sprites \
-		display1 display2 display_utils sprite \
-		room1 room2 room_utils1 room_utils2 point \
-		object_character object_snas object_wall
+CODE =	$(addprefix main/, \
+			main error env input timedloop \
+		) \
+		$(addprefix display/, \
+			data_assets data_sprites \
+			display1 display2 display_utils sprite \
+		) \
+		$(addprefix room/, \
+			room1 room2 room_utils1 room_utils2 \
+			object_character object_snas object_wall \
+		) \
+		utils/point
 LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a
 LIBRARIES_LINK = mlx
