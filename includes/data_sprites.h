@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 15:02:34 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:43:24 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "data_assets.h"
 
-# define NB_SPRITES 8
+# define NB_SPRITES 9
 
 typedef enum e_assettype
 {
@@ -37,7 +37,8 @@ extern const t_spriteinfo	g_spritesmap[NB_SPRITES];
 typedef enum e_spriteid
 {
 	CASE_WALL,
-	CASE_FLOOR,
+	CASE_FLOOR_1,
+	CASE_FLOOR_2,
 	SPR_SNAS,
 	SPR_SNAS_DOWN,
 	SPR_SNAS_UP,

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 15:44:11 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:42:52 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_room
 typedef struct s_roomcase
 {
 	char			c;
-	t_spriteid		surface_spr;
 	t_object_init	object;
 }					t_roomcase;
 

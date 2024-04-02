@@ -5,7 +5,7 @@ INCLUDES = includes/
 CODE = main error env input timedloop \
 		data_assets data_sprites \
 		display1 display2 display_utils sprite \
-		room1 room2 room_utils point \
+		room1 room2 room_utils1 room_utils2 point \
 		object_character object_snas object_wall
 LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a

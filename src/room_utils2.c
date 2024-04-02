@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_sprites.c                                     :+:      :+:    :+:   */
+/*   room_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/11 16:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 12:39:30 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/04/02 12:33:48 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/04/02 12:51:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "room_utils.h"
 #include "data_sprites.h"
 
-const t_spriteinfo	g_spritesmap[NB_SPRITES] = {
-{WALL_BORDER, 1, 50, 50, ANIMATION},
-{FLOOR_1, 1, 50, 50, ANIMATION},
-{FLOOR_2, 1, 50, 50, ANIMATION},
-{OBJECT_SNAS, 0, 50, 50, CHARACTER_STILL},
-{OBJECT_SNAS_DOWN, 1, 50, 50, ANIMATION},
-{OBJECT_SNAS_UP, 1, 50, 50, ANIMATION},
-{OBJECT_SNAS_LEFT, 1, 50, 50, ANIMATION},
-{OBJECT_SNAS_RIGHT, 1, 50, 50, ANIMATION},
-{WALL_INNER, 1, 50, 50, ANIMATION},
-};
+void	room_patch(t_room *room)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (++x < room->width)
+	{
+		y = -1;
+		while (++y < room->height)
+		{
+			if (y == 0 || y == room->height - 1)
+			{
+				room->surfaces[y * room->width + x] = sprite_init(CASE_WALL);
+				room->objects[y * room->width + x] = NULL;
+			}
+			else
+				room->surfaces[y * room->width + x] = sprite_init(
+						CASE_FLOOR_1 + (x + y) % 2);
+		}
+	}
+}

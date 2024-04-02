@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 17:32:26 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:42:18 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static bool	room_fromfile2(
 	while (*line && *line != '\n')
 	{
 		roomcase = getroomcase(path, *line);
-		room->surfaces[*i] = sprite_init(roomcase->surface_spr);
 		if (roomcase->object)
 		{
 			room->objects[*i] = mem_alloc(err, room->mc, sizeof(t_object));
@@ -65,6 +64,7 @@ t_room	room_fromfile(t_const_string path)
 	while (room_fromfile2(fd, path, &i, &r))
 		;
 	mem_freeall(mc);
+	room_patch(&r);
 	return (r);
 }
 

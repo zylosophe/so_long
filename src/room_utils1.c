@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   room_utils.c                                       :+:      :+:    :+:   */
+/*   room_utils1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/29 17:21:17 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:44:30 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 #include "object.h"
 
 static t_roomcase	g_roomcases[] = {
-{c: '0', surface_spr: CASE_FLOOR, object: NULL},
-{c: '1', surface_spr: CASE_FLOOR, object: wall_init},
-{c: 'P', surface_spr: CASE_FLOOR, object: snas_init},
+{c: '0', object: NULL},
+{c: '1', object: wall_init},
+{c: 'P', object: snas_init},
 {c: '\0'}
 };
 
