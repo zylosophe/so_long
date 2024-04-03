@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 18:04:18 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 16:08:07 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(void)
 	if (!g_env.win)
 		error_err("mlx_new_window() failed");
 	g_env.room = room_fromfile("room/room.ber");
+	g_env.ketchup = 0;
 	room_draw(g_env.room);
 	mlx_expose_hook(g_env.win, expose_hook, NULL);
 	mlx_hook(g_env.win, DestroyNotify, StructureNotifyMask, close_hook, NULL);

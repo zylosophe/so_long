@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 18:26:03 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:56:53 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # include "display/display.h"
 # include "display/sprite.h"
 
+# include "room/visual.h"
 # include "room/object.h"
 # include "room/character.h"
 # include "room/objects.h"

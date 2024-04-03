@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 18:02:48 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:16:56 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	snas_draw(t_object *obj, int x, int y)
 t_object	snas_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {loop: snas_loop, draw: snas_draw};
+		= {loop: snas_loop, draw: snas_draw, walk_through: NULL};
 	static const t_character_sprites	sprites = {
 		still: SPR_SNAS,
 		walk_left: SPR_SNAS_LEFT,
@@ -54,6 +54,5 @@ t_object	snas_init(t_memclass mc)
 	data = mem_alloc(error_err, mc, sizeof(t_snas_data));
 	data->character = character_init((t_character_sprites *)&sprites);
 	r.data = data;
-	r.solid = true;
 	return (r);
 }

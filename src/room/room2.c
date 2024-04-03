@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:44:12 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 16:10:23 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ t_object	*room_getobjectfaced(
 	return (room.objects[pos.y * room.width + pos.x]);
 }
 
+// if this returns true, then character *must* walk forward.
 bool	room_canwalk(t_room room, t_character *character, t_point pos)
 {
 	t_point		after;
 	t_object	*obj;
+	bool		r;
 
 	after = pos;
 	point_addto(&after, point_fromdirection(character->direction));
@@ -31,5 +33,10 @@ bool	room_canwalk(t_room room, t_character *character, t_point pos)
 		|| after.x <= 0 || after.x >= room.width - 1)
 		return (false);
 	obj = room_getobjectfaced(room, character, pos);
-	return (!obj || !obj->solid);
+	r = (!obj || (
+				obj->type.walk_through
+				&& obj->type.walk_through(character, after)));
+	if (r)
+		mem_free(obj);
+	return (r);
 }

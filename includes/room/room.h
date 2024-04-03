@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:50:58 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:32:23 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_room
 	int			height;
 	t_sprite	*surfaces;
 	t_object	**objects;
+	t_visual	**visuals;
 	t_memclass	mc;
 }				t_room;
 

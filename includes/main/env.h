@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 14:39:26 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 16:06:13 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_env
 	void		*win;
 	t_room		room;
 	bool		input[4];
+	int			ketchup;
 }				t_env;
 
 extern t_env	g_env;

@@ -10,8 +10,8 @@ CODE =	$(addprefix main/, \
 			display1 display2 display_utils sprite \
 		) \
 		$(addprefix room/, \
-			room1 room2 room_utils1 room_utils2 \
-			object_character object_snas object_wall \
+			visual room1 room2 room_utils1 room_utils2 \
+			object_character object_snas object_wall object_ketchup \
 		) \
 		utils/point
 LIBRARIES = mlx libtf

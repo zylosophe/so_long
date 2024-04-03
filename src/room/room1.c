@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 18:28:28 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:43:44 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ t_room	room_fromfile(t_const_string path)
 			* sizeof(t_sprite));
 	r.objects = mem_alloc(error_err, r.mc, r.width * r.height
 			* sizeof(t_object *));
+	r.visuals = mem_alloc(error_err, r.mc, r.width * r.height
+			* sizeof(t_visual *));
+	i = -1;
+	while (++i < r.width * r.height)
+		r.visuals[i] = NULL;
 	i = 0;
 	while (room_fromfile2(fd, path, &i, &r))
 		;
@@ -89,6 +94,7 @@ void	room_draw(t_room room)
 			obj = room.objects[y * room.width + x];
 			if (obj)
 				obj->type.draw(obj, x * 50, y * 50);
+			visual_loop(&room.visuals[y * room.width + x], x * 50, y * 50);
 		}
 	}
 }
