@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 15:53:40 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:01:55 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ typedef enum e_spritesmap_id
 	CASE_FLOOR_1,
 	CASE_FLOOR_2,
 	SPR_SNAS,
-	SPR_SNAS_DOWN,
-	SPR_SNAS_UP,
-	SPR_SNAS_LEFT,
-	SPR_SNAS_RIGHT,
+	SPR_SNAS_WALK_DOWN,
+	SPR_SNAS_WALK_UP,
+	SPR_SNAS_WALK_RIGHT,
+	SPR_SNAS_WALK_LEFT,
 	SPR_WALL,
 	SPR_KETCHUP,
 	SPR_KETCHUP_FADE,

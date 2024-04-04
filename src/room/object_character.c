@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:35:56 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/05 19:44:45 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ static void	character_initstate(t_character *character)
 		character->sprites->walk_left,
 		character->sprites->walk_right,
 	};
+	t_sprite				new_spr;
 
 	if (character->walk_remaining_steps)
-		character->spr = sprite_init(walk_sprites[character->direction]);
+	{
+		new_spr = sprite_init(walk_sprites[character->direction]);
+		if (character->spr.meta != new_spr.meta)
+			character->spr = new_spr;
+	}
 	else
 	{
-		character->spr = sprite_init(SPR_SNAS);
+		character->spr = sprite_init(character->sprites->still);
 		sprite_character_set_direction(&character->spr, character->direction);
 	}
 }
@@ -50,9 +55,11 @@ t_point	character_loop(
 
 	move = NO_DIRECTION;
 	if (character->walk_remaining_steps)
-		if (!--character->walk_remaining_steps)
-			character_initstate(character);
-	if (!character->walk_remaining_steps)
+	{
+		character_initstate(character);
+		character->walk_remaining_steps--;
+	}
+	else
 	{
 		move = brain();
 		if (move != NO_DIRECTION)
@@ -64,8 +71,8 @@ t_point	character_loop(
 				character_initstate(character);
 				return (point_fromdirection(character->direction));
 			}
-			character_initstate(character);
 		}
+		character_initstate(character);
 	}
 	return (point_init(0, 0));
 }
@@ -77,6 +84,7 @@ t_character	character_init(t_character_sprites *sprites)
 	r.direction = DOWN;
 	r.sprites = sprites;
 	r.walk_remaining_steps = 0;
+	r.spr = sprite_init(r.sprites->still);
 	character_initstate(&r);
 	return (r);
 }

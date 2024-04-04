@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:27:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:27:27 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:44:23 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ const t_assetmeta	g_assetsmap[NB_ASSETS] = {
 {"object/snas/up", 50, 100, 30, 100, false},
 {"object/snas/left", 50, 100, 30, 100, false},
 {"object/snas/right", 50, 100, 30, 100, false},
+{"object/snas/walk_down_1", 50, 100, 30, 100, false},
+{"object/snas/walk_down_2", 50, 100, 30, 100, false},
+{"object/snas/walk_down_3", 50, 100, 30, 100, false},
+{"object/snas/walk_down_4", 50, 100, 30, 100, false},
+{"object/snas/walk_right_1", 50, 100, 30, 100, false},
+{"object/snas/walk_right_2", 50, 100, 30, 100, false},
+{"object/snas/walk_left_1", 50, 100, 30, 100, false},
+{"object/snas/walk_left_2", 50, 100, 30, 100, false},
+{"object/snas/walk_up_1", 50, 100, 30, 100, false},
+{"object/snas/walk_up_2", 50, 100, 30, 100, false},
+{"object/snas/walk_up_3", 50, 100, 30, 100, false},
+{"object/snas/walk_up_4", 50, 100, 30, 100, false},
 	// firsk
 {"object/firsk/down", 50, 110, 30, 100, false},
 {"object/firsk/up", 40, 100, 30, 100, false},

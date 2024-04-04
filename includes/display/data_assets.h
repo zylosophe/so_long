@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:27:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:43:19 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 36
+# define NB_ASSETS 48
 
 typedef struct s_assetmeta
 {
@@ -43,6 +43,18 @@ typedef enum e_assetsmap_id
 	OBJECT_SNAS_UP,
 	OBJECT_SNAS_LEFT,
 	OBJECT_SNAS_RIGHT,
+	OBJECT_SNAS_WALK_DOWN_1,
+	OBJECT_SNAS_WALK_DOWN_2,
+	OBJECT_SNAS_WALK_DOWN_3,
+	OBJECT_SNAS_WALK_DOWN_4,
+	OBJECT_SNAS_WALK_RIGHT_1,
+	OBJECT_SNAS_WALK_RIGHT_2,
+	OBJECT_SNAS_WALK_LEFT_1,
+	OBJECT_SNAS_WALK_LEFT_2,
+	OBJECT_SNAS_WALK_UP_1,
+	OBJECT_SNAS_WALK_UP_2,
+	OBJECT_SNAS_WALK_UP_3,
+	OBJECT_SNAS_WALK_UP_4,
 	OBJECT_FIRSK_DOWN,
 	OBJECT_FIRST_UP,
 	OBJECT_FIRST_LEFT,
