@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:58:25 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 16:11:55 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:35:33 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_objecttype
 	// Called when a character want to walk through this object.
 	// Returns false to block the character. If true, it will pass.
 	// If walk_through is NULL, the character is blocked.
-	bool			(*walk_through)(t_character *, t_point pos);
+	bool			(*walk_through)(t_object *, t_character *, t_point pos);
 }					t_objecttype;
 
 typedef struct s_object

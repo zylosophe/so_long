@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/05 18:45:02 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:33:56 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,7 @@ const t_spritemeta	g_spritesmap[NB_SPRITES] = {
 {WALL_INNER, 50, 50, ANIMATION, 1, 1},
 {OBJECT_KETCHUP_STILL_1, 50, 50, ANIMATION, 4, 4},
 {OBJECT_KETCHUP_FADE_1, 50, 50, ANIMATION_ONCE, 3, 1},
+{OBJECT_EXIT_INACTIVE_1, 50, 50, ANIMATION, 2, 4},
+{OBJECT_EXIT_ACTIVE_1, 50, 50, ANIMATION, 4, 2},
+{OBJECT_EXIT_USING1_1, 50, 50, ANIMATION_ONCE, 11, 1},
 };

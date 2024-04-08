@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 16:10:39 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:36:10 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ static void	ketchup_draw(t_object *obj, int x, int y)
 	sprite_draw(x, y, &((t_wall_data *)obj->data)->spr);
 }
 
-static bool	ketchup_walk_through(t_character *character, t_point pos)
+static bool	ketchup_walk_through(
+		t_object *obj, t_character *character, t_point pos)
 {
+	(void)obj;
 	(void)character;
 	g_env.ketchup++;
-	tf_printf("Ketchup level: %i\n", g_env.ketchup);
 	visual_addtoroom(SPR_KETCHUP_FADE, pos);
 	return (true);
 }
@@ -45,5 +46,6 @@ t_object	ketchup_init(t_memclass mc)
 	data = mem_alloc(error_err, mc, sizeof(t_wall_data));
 	data->spr = sprite_init(SPR_KETCHUP);
 	r.data = data;
+	g_env.max_ketchup++;
 	return (r);
 }

@@ -11,7 +11,7 @@ CODE =	$(addprefix main/, \
 		) \
 		$(addprefix room/, \
 			visual room1 room2 room_utils1 room_utils2 \
-			object_character object_snas object_wall object_ketchup \
+			object_character object_snas object_wall object_ketchup object_exit \
 		) \
 		utils/point
 LIBRARIES = mlx libtf

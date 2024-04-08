@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 16:10:23 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:36:42 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	room_canwalk(t_room room, t_character *character, t_point pos)
 	obj = room_getobjectfaced(room, character, pos);
 	r = (!obj || (
 				obj->type.walk_through
-				&& obj->type.walk_through(character, after)));
+				&& obj->type.walk_through(obj, character, after)));
 	if (r)
 		mem_free(obj);
 	return (r);

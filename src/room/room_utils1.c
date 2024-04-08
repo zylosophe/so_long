@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 13:35:35 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:07:16 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static t_roomcase	g_roomcases[] = {
 {c: '1', object: wall_init},
 {c: 'P', object: snas_init},
 {c: 'K', object: ketchup_init},
+{c: 'E', object: exit_init},
 {c: '\0'}
 };
 

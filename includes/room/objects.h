@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:47:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 15:25:31 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:22:05 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,14 @@ typedef struct s_ketchup_data
 }				t_ketchup_data;
 
 t_object		ketchup_init(t_memclass mc);
+
+// EXIT
+typedef struct s_exit_data
+{
+	t_sprite	spr;
+	bool		active;
+}				t_exit_data;
+
+t_object		exit_init(t_memclass mc);
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/05 18:01:55 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:30:53 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_SPRITES_H
 # define DATA_SPRITES_H
 
-# define NB_SPRITES 11
+# define NB_SPRITES 14
 
 typedef enum e_spritetype
 {
@@ -47,6 +47,9 @@ typedef enum e_spritesmap_id
 	SPR_WALL,
 	SPR_KETCHUP,
 	SPR_KETCHUP_FADE,
+	SPR_EXIT_INACTIVE,
+	SPR_EXIT_ACTIVE,
+	SPR_EXIT_USING,
 }	t_spritesmap_id;
 
 #endif

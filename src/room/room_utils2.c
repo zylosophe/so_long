@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:33:48 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:52:14 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:16:01 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 #include "room_utils.h"
 
-void	room_patch(t_room *room)
+void	room_fromfile3(t_room *room)
 {
 	int	x;
 	int	y;
