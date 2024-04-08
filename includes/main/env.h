@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:17:26 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:23:27 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_env
 	bool		input[4];
 	int			ketchup;
 	int			max_ketchup;
+	int			moves;
 }				t_env;
 
 extern t_env	g_env;

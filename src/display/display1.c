@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:05:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 18:03:21 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:15:15 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,12 @@ void	display_erase(void)
 
 void	display_flush(void)
 {
+	const t_memclass	mc = mem_subclass(error_err, g_env.mc);
+
 	mlx_put_image_to_window(g_env.mlx, g_env.win, g_screenbuf.img, 0, 0);
+	mlx_string_put(g_env.mlx, g_env.win, 0, 10, 0xFFFFFF,
+		str_inttostr(error_err, mc, g_env.moves));
+	mem_freeall(mc);
 }
 
 void	display_destroyall(void)

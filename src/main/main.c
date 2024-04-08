@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:16:57 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:18:03 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	loop_hook(void)
 int	main(void)
 {
 	g_env.max_ketchup = 0;
+	g_env.moves = 0;
 	g_env.mc = mem_newclass(error_err);
 	g_env.mlx = mlx_init();
 	if (!g_env.mlx)

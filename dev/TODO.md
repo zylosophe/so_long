@@ -1,5 +1,3 @@
-- Count moves
-  - Show moves on the screen
 - Change sprites for top and bottom borders
 - ESC to quit (what's the point)
 - Map conditions

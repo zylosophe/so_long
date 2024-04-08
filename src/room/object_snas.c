@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/04 16:08:52 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:11:46 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ static t_direction	snas_brain(void)
 
 static t_point	snas_loop(t_object *obj, t_point pos)
 {
-	return (character_loop(
-			&((t_snas_data *)obj->data)->character, pos, snas_brain));
+	t_point	r;
+
+	r = character_loop(&((t_snas_data *)obj->data)->character, pos, snas_brain);
+	if (r.x || r.y)
+		g_env.moves++;
+	return (r);
 }
 
 static void	snas_draw(t_object *obj, int x, int y)
