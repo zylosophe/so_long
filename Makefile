@@ -55,7 +55,7 @@ fclean : clean
 	@echo "\e[30;47;1m  fclean finished!  \e[0m"
 
 
-re : fclean all
+re : clean all
 
 debug :
 	make all DEBUG=yes
