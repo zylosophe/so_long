@@ -1,0 +1,18 @@
+- Count moves
+  - Show moves on the screen
+- Change sprites for top and bottom borders
+- ESC to quit (what's the point)
+- Map chars:
+  - 0 empty
+  - 1 wall
+  - C collectible
+  - E exit
+  - P snas start position
+- Map conditions
+  - 1 exit
+  - 1+ collectibles
+  - 1 start position
+  - rectangular
+  - walls all around
+  - a possible way to exit
+- Program takes the map file
