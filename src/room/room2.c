@@ -5,38 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:36:42 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/04/09 15:14:49 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/04/09 15:21:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
-#include "room_utils.h"
 
-t_object	*room_getobjectfaced(
-				t_room room, t_character *character, t_point pos)
+static void	moveobject(t_room room, t_point start, t_point move)
 {
-	point_addto(&pos, point_fromdirection(character->direction));
-	return (room.objects[pos.y * room.width + pos.x]);
+	t_point	end;
+
+	end = start;
+	point_addto(&end, move);
+	if (start.x == end.x && start.y == end.y)
+		return ;
+	room.objects[end.y * room.width + end.x]
+		= room.objects[start.y * room.width + start.x];
+	room.objects[start.y * room.width + start.x] = NULL;
 }
 
-// if this returns true, then character *must* walk forward.
-bool	room_canwalk(t_room room, t_character *character, t_point pos)
+static bool	isinlist(void *addr, t_list list)
 {
-	t_point		after;
-	t_object	*obj;
-	bool		r;
+	t_list_element	*el;
 
-	after = pos;
-	point_addto(&after, point_fromdirection(character->direction));
-	if (after.y <= 0 || after.y >= room.height - 1
-		|| after.x <= 0 || after.x >= room.width - 1)
-		return (false);
-	obj = room_getobjectfaced(room, character, pos);
-	r = (!obj || (
-				obj->type.walk_through
-				&& obj->type.walk_through(obj, character, after)));
-	if (r)
-		mem_free(obj);
-	return (r);
+	el = list.first;
+	while (el)
+	{
+		if (el->value == addr)
+			return (true);
+		el = el->next;
+	}
+	return (false);
+}
+
+void	room_loop(t_room room)
+{
+	t_point				pos;
+	t_object			*object;
+	t_point				move;
+	const t_memclass	mc = mem_subclass(error_err, g_env.mc);
+	t_list				objects_done;
+
+	objects_done = list_createempty(mc);
+	pos.x = 0;
+	while (pos.x < room.width)
+	{
+		pos.y = 0;
+		while (pos.y < room.height)
+		{
+			object = room.objects[pos.y * room.width + pos.x];
+			if (object && !isinlist(object, objects_done))
+			{
+				move = object->type.loop(object, pos);
+				moveobject(room, pos, move);
+				list_add(error_err, &objects_done, object);
+			}
+			pos.y++;
+		}
+		pos.x++;
+	}
+	mem_freeall(mc);
+}
+
+void	room_free(t_room room)
+{
+	mem_freeall(room.mc);
 }

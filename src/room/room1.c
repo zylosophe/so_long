@@ -5,13 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 23:31:22 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 14:40:32 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/04/09 15:28:31 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 #include "room_utils.h"
+
+static void	room_fromfile3(t_room *room)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (++x < room->width)
+	{
+		y = -1;
+		while (++y < room->height)
+		{
+			if (y == 0 || y == room->height - 1)
+			{
+				room->surfaces[y * room->width + x] = sprite_init(CASE_WALL);
+				room->objects[y * room->width + x] = NULL;
+			}
+			else
+				room->surfaces[y * room->width + x] = sprite_init(
+						CASE_FLOOR_1 + (x + y) % 2);
+		}
+	}
+}
 
 static bool	room_fromfile2(
 				int fd, t_const_string path, int *i, t_room *room)
@@ -82,7 +105,8 @@ void	room_init(t_const_string path)
 	g_env.max_ketchup = 0;
 	i = -1;
 	while (++i < g_env.room.width * g_env.room.height)
-		if (g_env.room.objects[i] && g_env.room.objects[i]->type.init == ketchup_init)
+		if (g_env.room.objects[i]
+			&& g_env.room.objects[i]->type.init == ketchup_init)
 			g_env.max_ketchup++;
 }
 
@@ -111,38 +135,4 @@ void	room_draw(t_room room)
 			visual_loop(&room.visuals[y * room.width + x], x * 50, y * 50);
 		}
 	}
-}
-
-void	room_loop(t_room room)
-{
-	t_point				pos;
-	t_object			*object;
-	t_point				move;
-	const t_memclass	mc = mem_subclass(error_err, g_env.mc);
-	t_list				objects_done;
-
-	objects_done = list_createempty(mc);
-	pos.x = 0;
-	while (pos.x < room.width)
-	{
-		pos.y = 0;
-		while (pos.y < room.height)
-		{
-			object = room.objects[pos.y * room.width + pos.x];
-			if (object && !isinlist(object, objects_done))
-			{
-				move = object->type.loop(object, pos);
-				moveobject(room, pos, move);
-				list_add(error_err, &objects_done, object);
-			}
-			pos.y++;
-		}
-		pos.x++;
-	}
-	mem_freeall(mc);
-}
-
-void	room_free(t_room room)
-{
-	mem_freeall(room.mc);
 }

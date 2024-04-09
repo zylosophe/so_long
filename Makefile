@@ -10,7 +10,7 @@ CODE =	$(addprefix main/, \
 			display1 display2 display_utils sprite \
 		) \
 		$(addprefix room/, \
-			visual room1 room2 room_utils1 room_utils2 \
+			visual room1 room2 room3 room_utils \
 			object_character object_snas object_wall object_ketchup object_exit \
 		) \
 		utils/point
