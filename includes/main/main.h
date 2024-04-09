@@ -6,13 +6,13 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:39:54 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 14:39:40 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:45:55 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_H
 # define MAIN_H
 
-int	main(void);
+int	main(int argc, t_const_string *argv);
 
 #endif

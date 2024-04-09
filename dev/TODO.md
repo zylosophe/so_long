@@ -6,4 +6,3 @@
   - rectangular
   - walls all around
   - a possible way to exit
-- Program takes the map file

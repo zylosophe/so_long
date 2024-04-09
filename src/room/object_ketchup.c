@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:36:10 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:35:36 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static bool	ketchup_walk_through(
 t_object	ketchup_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {loop: ketchup_loop, draw: ketchup_draw,
+		= {init: ketchup_init, loop: ketchup_loop, draw: ketchup_draw,
 		walk_through: ketchup_walk_through};
 	t_object							r;
 	t_wall_data							*data;
@@ -46,6 +46,5 @@ t_object	ketchup_init(t_memclass mc)
 	data = mem_alloc(error_err, mc, sizeof(t_wall_data));
 	data->spr = sprite_init(SPR_KETCHUP);
 	r.data = data;
-	g_env.max_ketchup++;
 	return (r);
 }

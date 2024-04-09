@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:58:25 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:35:33 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:34:13 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 typedef struct s_object		t_object;
 typedef struct s_character	t_character;
 
+typedef t_object			(*t_object_init)(t_memclass);
+
 typedef struct s_objecttype
 {
+	t_object_init	init;
 	t_point			(*loop)(t_object *, t_point pos);
 	void			(*draw)(t_object *, int x, int y);
 	// Called when a character want to walk through this object.
@@ -31,7 +34,5 @@ typedef struct s_object
 	t_objecttype	type;
 	void			*data;
 }					t_object;
-
-typedef t_object			(*t_object_init)(t_memclass);
 
 #endif

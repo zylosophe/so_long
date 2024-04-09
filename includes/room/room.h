@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:17:12 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:22:51 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_room
 	t_memclass	mc;
 }				t_room;
 
-t_room		room_fromfile(t_const_string path);
+void		room_init(t_const_string path);
 
 void		room_loop(t_room room);
 

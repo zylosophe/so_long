@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 15:17:07 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:36:04 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	wall_draw(t_object *obj, int x, int y)
 t_object	wall_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {loop: wall_loop, draw: wall_draw, walk_through: NULL};
+		= {init: wall_init, loop: wall_loop, draw: wall_draw, walk_through: NULL};
 	t_object							r;
 	t_wall_data							*data;
 

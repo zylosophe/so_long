@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 14:16:56 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:46:08 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,24 @@ int	loop_hook(void)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, t_const_string *argv)
 {
-	g_env.max_ketchup = 0;
-	g_env.moves = 0;
+	if (argc != 2)
+		error_str("so_long", "takes 1 argument");
+	g_env.mc = mem_newclass(error_err);
 	g_env.mlx = mlx_init();
 	if (!g_env.mlx)
 		error_err("mlx_init() failed");
-	g_env.mc = mem_newclass(error_err);
+	mlx_do_key_autorepeatoff(g_env.mlx);
 	display_init();
 	g_env.win = mlx_new_window(g_env.mlx, WINDOW_WIDTH, WINDOW_HEIGHT,
 			WINDOW_TITLE);
 	if (!g_env.win)
 		error_err("mlx_new_window() failed");
-	g_env.room = room_fromfile("room/room.ber");
-	g_env.ketchup = 0;
-	room_draw(g_env.room);
+	room_init(argv[1]);
 	mlx_expose_hook(g_env.win, expose_hook, NULL);
 	mlx_hook(g_env.win, DestroyNotify, StructureNotifyMask, close_hook, NULL);
 	mlx_loop_hook(g_env.mlx, loop_hook, NULL);
-	mlx_do_key_autorepeatoff(g_env.mlx);
 	mlx_hook(g_env.win, KeyPress, KeyPressMask, key_press_hook, NULL);
 	mlx_hook(g_env.win, KeyRelease, KeyReleaseMask, key_release_hook, NULL);
 	mlx_loop(g_env.mlx);
