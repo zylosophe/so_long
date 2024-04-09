@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:37:23 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/03/11 14:03:48 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:06:59 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 # define MEM_UTILS_H
 
 # include "libtf.h"
-# include "mem_utils.h"
 # include <stdlib.h>
 
-typedef struct s_memclass_in	*t_memclass_in;
+typedef struct s_memclass_in	t_memclass_in;
 typedef struct s_element		t_element;
-
-typedef struct s_memclass_in	*t_memclass_in;
 
 typedef struct s_element
 {
 	void			*address;
-	t_memclass_in	subclass;
+	t_memclass_in	*subclass;
 	t_element		*previous;
 	t_element		*next;
-	t_memclass_in	mc;
+	t_memclass_in	*mc;
 }						t_element;
 
 typedef struct s_memclass_in
 {
 	t_element	*first;
 	t_element	*parent_element;
-}				*t_memclass_in;
+}				t_memclass_in;
 
 void		*create_address_with_element(t_element *element, size_t size);
 

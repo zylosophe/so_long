@@ -11,7 +11,7 @@ PRINTF_CODE = \
 		ft_strjoin stream1 stream2 utils1 utils2
 PRINTF_SRCS = tf_printf/src/
 PRINTF_INCLUDES = ./ tf_printf/include/
-WHAT = LIBTF v7
+WHAT = LIBTF v9
 USED = malloc() free() write()
 
 # It works and I probably won't change it for the rest of my life
