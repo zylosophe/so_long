@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 17:18:03 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:16:56 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	expose_hook(void)
 
 int	close_hook(void)
 {
-	mlx_do_key_autorepeaton(g_env.mlx);
 	success();
 	return (0);
 }
@@ -44,10 +43,10 @@ int	main(void)
 {
 	g_env.max_ketchup = 0;
 	g_env.moves = 0;
-	g_env.mc = mem_newclass(error_err);
 	g_env.mlx = mlx_init();
 	if (!g_env.mlx)
 		error_err("mlx_init() failed");
+	g_env.mc = mem_newclass(error_err);
 	display_init();
 	g_env.win = mlx_new_window(g_env.mlx, WINDOW_WIDTH, WINDOW_HEIGHT,
 			WINDOW_TITLE);

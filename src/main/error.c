@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:05:21 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:56:31 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:16:15 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	end(int no)
 {
+	if (g_env.mlx)
+		mlx_do_key_autorepeaton(g_env.mlx);
 	display_destroyall();
 	mem_freeall(g_env.mc);
 	exit(no);
