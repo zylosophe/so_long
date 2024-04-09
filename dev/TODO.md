@@ -1,5 +1,4 @@
 - Change sprites for top and bottom borders
-- ESC to quit (what's the point)
 - Map conditions
   - 1 exit
   - 1+ collectibles

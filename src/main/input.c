@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:26:17 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 14:41:14 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:44:46 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ static void	setkey(int keycode, bool value)
 
 int	key_press_hook(int keycode)
 {
+	if (keycode == XK_Escape)
+		success();
 	setkey(keycode, true);
 	return (0);
 }
