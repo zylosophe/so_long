@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 17:43:37 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 19:53:54 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_object	ketchup_init(t_memclass mc)
 {
 	static const t_objecttype			type
 		= {
-		solid: false,
+		solid: true,
 		init: ketchup_init,
 		loop: ketchup_loop,
 		draw: ketchup_draw,
