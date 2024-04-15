@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:58:25 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 14:34:13 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:42:06 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ typedef t_object			(*t_object_init)(t_memclass);
 typedef struct s_objecttype
 {
 	t_object_init	init;
+	bool			solid;
 	t_point			(*loop)(t_object *, t_point pos);
-	void			(*draw)(t_object *, int x, int y);
+	void			(*draw)(t_object *, t_point p);
 	// Called when a character want to walk through this object.
 	// Returns false to block the character. If true, it will pass.
 	// If walk_through is NULL, the character is blocked.

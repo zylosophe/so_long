@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 15:27:39 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:44:49 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static t_point	wall_loop(t_object *obj, t_point pos)
 	return (point_init(0, 0));
 }
 
-static void	wall_draw(t_object *obj, int x, int y)
+static void	wall_draw(t_object *obj, t_point p)
 {
-	sprite_draw(x, y, &((t_wall_data *)obj->data)->spr);
+	sprite_draw(p, &((t_wall_data *)obj->data)->spr);
 }
 
 t_object	wall_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {init: wall_init, loop: wall_loop, draw: wall_draw,
+		= {solid: true, init: wall_init, loop: wall_loop, draw: wall_draw,
 		walk_through: NULL};
 	t_object							r;
 	t_wall_data							*data;

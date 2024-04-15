@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:18:38 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 15:25:41 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:10:15 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,23 @@ bool	room_canwalk(t_room room, t_character *character, t_point pos)
 	if (r)
 		mem_free(obj);
 	return (r);
+}
+
+t_point	room_find(t_object_init objtype)
+{
+	t_point		p;
+	t_object	*obj;
+
+	p.x = -1;
+	while (++p.x < g_env.room.width)
+	{
+		p.y = -1;
+		while (++p.y < g_env.room.height)
+		{
+			obj = g_env.room.objects[p.y * g_env.room.width + p.x];
+			if (obj && obj->type.init == objtype)
+				return (p);
+		}
+	}
+	return (point_init(-1, -1));
 }

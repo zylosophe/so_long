@@ -6,17 +6,17 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:35:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 16:01:04 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:08:14 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 
-void	visual_loop(t_visual **visual, int x, int y)
+void	visual_loop(t_visual **visual, t_point p)
 {
 	if (!(*visual))
 		return ;
-	if (!sprite_draw(x, y, &(*visual)->spr))
+	if (!sprite_draw(p, &(*visual)->spr))
 	{
 		mem_free(*visual);
 		*visual = 0;

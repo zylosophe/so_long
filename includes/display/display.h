@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:32:08 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:26:51 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:15:31 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	display_erase(void);
 /**
  * Draw an image somewhere in the window.
  * You must call display_flush() after drawing all images.
- * x,y is the top-left position of the image.
+ * p is the top-left position of the image.
  */
-void	display_draw(int x, int y, t_assetsmap_id asset);
+void	display_draw(t_point p, t_assetsmap_id asset);
 
 /**
  * Draw all the screen in the buffer.

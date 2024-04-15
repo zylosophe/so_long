@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:24:37 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 14:41:19 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:25:55 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ t_point	point_init(int x, int y)
 	const t_point	r = {x, y};
 
 	return (r);
+}
+
+t_point	point_add(t_point point, int x)
+{
+	point.x += x;
+	point.y += x;
+	return (point);
 }
 
 void	point_addto(t_point *dest, t_point src)

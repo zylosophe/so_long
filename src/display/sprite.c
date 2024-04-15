@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:28:52 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 15:56:09 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:24:03 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ t_sprite	sprite_init(t_spritesmap_id id)
 	return (r);
 }
 
-bool	sprite_draw(int x, int y, t_sprite *spr)
+bool	sprite_draw(t_point p, t_sprite *spr)
 {
 	if (spr->meta->type == ANIMATION || spr->meta->type == ANIMATION_ONCE)
 	{
 		display_draw(
-			x - spr->meta->origin_x, y - spr->meta->origin_y,
+			point_init(p.x - spr->meta->origin_x, p.y - spr->meta->origin_y),
 			spr->meta->first_frame + spr->index / spr->meta->delay_frame);
 		spr->index++;
 		if (spr->index >= spr->meta->nb_frames * spr->meta->delay_frame)
@@ -38,7 +38,7 @@ bool	sprite_draw(int x, int y, t_sprite *spr)
 	}
 	else
 		display_draw(
-			x - spr->meta->origin_x, y - spr->meta->origin_y,
+			point_init(p.x - spr->meta->origin_x, p.y - spr->meta->origin_y),
 			spr->meta->first_frame + spr->index);
 	return (true);
 }

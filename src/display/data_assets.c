@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:27:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/05 18:44:23 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:21:00 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ const t_assetmeta	g_assetsmap[NB_ASSETS] = {
 {"floor/1", 50, 100, 50, 100, true},
 {"floor/2", 50, 100, 50, 100, true},
 	// WALL
-{"wall/border", 50, 100, 50, 100, true},
+{"wall/border_top", 50, 100, 50, 100, true},
+{"wall/border_bottom", 50, 100, 50, 100, true},
 {"wall/inner", 50, 100, 30, 100, false},
 	// OBJECTS
 	// snas
@@ -39,11 +40,6 @@ const t_assetmeta	g_assetsmap[NB_ASSETS] = {
 {"object/snas/walk_up_2", 50, 100, 30, 100, false},
 {"object/snas/walk_up_3", 50, 100, 30, 100, false},
 {"object/snas/walk_up_4", 50, 100, 30, 100, false},
-	// firsk
-{"object/firsk/down", 50, 110, 30, 100, false},
-{"object/firsk/up", 40, 100, 30, 100, false},
-{"object/firsk/left", 50, 100, 30, 100, false},
-{"object/firsk/right", 50, 110, 30, 100, false},
 	// ketchup
 {"object/ketchup/still/1", 50, 100, 40, 110, false},
 {"object/ketchup/still/2", 50, 100, 40, 110, false},
@@ -69,5 +65,22 @@ const t_assetmeta	g_assetsmap[NB_ASSETS] = {
 {"object/exit/using2/4", 50, 100, 50, 100, false},
 {"object/exit/using2/5", 50, 100, 50, 100, false},
 {"object/exit/using2/6", 50, 100, 50, 100, false},
-{"object/exit/using2/7", 50, 100, 50, 100, false}
+{"object/exit/using2/7", 50, 100, 50, 100, false},
+	// firsk
+{"object/firsk/down", 50, 110, 30, 100, false},
+{"object/firsk/up", 40, 100, 30, 100, false},
+{"object/firsk/left", 50, 100, 30, 100, false},
+{"object/firsk/right", 50, 110, 30, 100, false},
+{"object/firsk/walk_down_1", 50, 110, 30, 100, false},
+{"object/firsk/walk_down_2", 50, 110, 30, 100, false},
+{"object/firsk/walk_down_3", 50, 110, 30, 100, false},
+{"object/firsk/walk_down_4", 50, 110, 30, 100, false},
+{"object/firsk/walk_right_1", 50, 110, 30, 100, false},
+{"object/firsk/walk_right_2", 50, 110, 30, 100, false},
+{"object/firsk/walk_left_1", 50, 100, 30, 100, false},
+{"object/firsk/walk_left_2", 50, 100, 30, 100, false},
+{"object/firsk/walk_up_1", 40, 100, 30, 100, false},
+{"object/firsk/walk_up_2", 40, 100, 30, 100, false},
+{"object/firsk/walk_up_3", 40, 100, 30, 100, false},
+{"object/firsk/walk_up_4", 40, 100, 30, 100, false},
 };

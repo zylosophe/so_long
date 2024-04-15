@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/05 18:43:19 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:20:07 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 48
+# define NB_ASSETS 61
 
 typedef struct s_assetmeta
 {
@@ -37,7 +37,8 @@ typedef enum e_assetsmap_id
 {
 	FLOOR_1,
 	FLOOR_2,
-	WALL_BORDER,
+	WALL_BORDER_TOP,
+	WALL_BORDER_BOTTOM,
 	WALL_INNER,
 	OBJECT_SNAS_DOWN,
 	OBJECT_SNAS_UP,
@@ -55,10 +56,6 @@ typedef enum e_assetsmap_id
 	OBJECT_SNAS_WALK_UP_2,
 	OBJECT_SNAS_WALK_UP_3,
 	OBJECT_SNAS_WALK_UP_4,
-	OBJECT_FIRSK_DOWN,
-	OBJECT_FIRST_UP,
-	OBJECT_FIRST_LEFT,
-	OBJECT_FIRSK_RIGHT,
 	OBJECT_KETCHUP_STILL_1,
 	OBJECT_KETCHUP_STILL_2,
 	OBJECT_KETCHUP_STILL_3,
@@ -82,7 +79,23 @@ typedef enum e_assetsmap_id
 	OBJECT_EXIT_USING2_4,
 	OBJECT_EXIT_USING2_5,
 	OBJECT_EXIT_USING2_6,
-	OBJECT_EXIT_USING2_7
+	OBJECT_EXIT_USING2_7,
+	OBJECT_FIRSK_DOWN,
+	OBJECT_FIRSK_UP,
+	OBJECT_FIRSK_LEFT,
+	OBJECT_FIRSK_RIGHT,
+	OBJECT_FIRSK_WALK_DOWN_1,
+	OBJECT_FIRSK_WALK_DOWN_2,
+	OBJECT_FIRSK_WALK_DOWN_3,
+	OBJECT_FIRSK_WALK_DOWN_4,
+	OBJECT_FIRSK_WALK_RIGHT_1,
+	OBJECT_FIRSK_WALK_RIGHT_2,
+	OBJECT_FIRSK_WALK_LEFT_1,
+	OBJECT_FIRSK_WALK_LEFT_2,
+	OBJECT_FIRSK_WALK_UP_1,
+	OBJECT_FIRSK_WALK_UP_2,
+	OBJECT_FIRSK_WALK_UP_3,
+	OBJECT_FIRSK_WALK_UP_4,
 }	t_assetsmap_id;
 
 # define OBJECT_SNAS OBJECT_SNAS_DOWN

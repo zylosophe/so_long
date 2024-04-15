@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:23:43 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 15:24:07 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:49:56 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@ typedef struct s_roomcase
 
 void		room_getsize(t_memclass mc, t_room *r, t_const_string path);
 t_roomcase	*getroomcase(t_const_string path, char c);
+int			room_count(t_object_init objtype);
+void		room_checkwallsallaround(t_const_string path, t_room *room);
+t_point		to_camera_pos(t_point p);
+void		room_checkaccessibilities(t_const_string path);
 
 #endif

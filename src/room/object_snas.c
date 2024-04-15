@@ -6,14 +6,15 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 15:28:02 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:10:32 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 
-static t_direction	snas_brain(void)
+static t_direction	snas_brain(t_point pos)
 {
+	(void)pos;
 	if (g_env.input[UP] && !g_env.input[DOWN])
 		return (UP);
 	if (g_env.input[DOWN] && !g_env.input[UP])
@@ -35,15 +36,15 @@ static t_point	snas_loop(t_object *obj, t_point pos)
 	return (r);
 }
 
-static void	snas_draw(t_object *obj, int x, int y)
+static void	snas_draw(t_object *obj, t_point p)
 {
-	return (character_draw(&((t_snas_data *)obj->data)->character, x, y));
+	return (character_draw(&((t_snas_data *)obj->data)->character, p));
 }
 
 t_object	snas_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {init: snas_init, loop: snas_loop, draw: snas_draw,
+		= {solid: false, init: snas_init, loop: snas_loop, draw: snas_draw,
 		walk_through: NULL};
 	static const t_character_sprites	sprites = {
 		still: SPR_SNAS,
@@ -57,7 +58,7 @@ t_object	snas_init(t_memclass mc)
 
 	r.type = type;
 	data = mem_alloc(error_err, mc, sizeof(t_snas_data));
-	data->character = character_init((t_character_sprites *)&sprites);
+	data->character = character_init((t_character_sprites *)&sprites, 4);
 	r.data = data;
 	return (r);
 }

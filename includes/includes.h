@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/03 15:56:53 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:41:18 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # include "utils/direction.h"
 # include "utils/point.h"
+# include "utils/map.h"
 
 # include "display/pixel.h"
 # include "display/data_assets.h"
@@ -40,6 +41,8 @@
 # include "room/character.h"
 # include "room/objects.h"
 # include "room/room.h"
+# include "room/camera.h"
+# include "room/pathfinding.h"
 
 # include "main/env.h"
 # include "main/error.h"

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:47:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:22:05 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:54:23 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ typedef struct s_exit_data
 	t_sprite	spr;
 	bool		active;
 }				t_exit_data;
+
+// FIRSK
+typedef struct s_firsk_data
+{
+	t_character	character;
+}				t_firsk_data;
+
+t_object		firsk_init(t_memclass mc);
 
 t_object		exit_init(t_memclass mc);
 

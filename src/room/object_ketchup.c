@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 14:35:36 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:43:37 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static t_point	ketchup_loop(t_object *obj, t_point pos)
 	return (point_init(0, 0));
 }
 
-static void	ketchup_draw(t_object *obj, int x, int y)
+static void	ketchup_draw(t_object *obj, t_point p)
 {
-	sprite_draw(x, y, &((t_wall_data *)obj->data)->spr);
+	sprite_draw(p, &((t_wall_data *)obj->data)->spr);
 }
 
 static bool	ketchup_walk_through(
@@ -37,7 +37,11 @@ static bool	ketchup_walk_through(
 t_object	ketchup_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {init: ketchup_init, loop: ketchup_loop, draw: ketchup_draw,
+		= {
+		solid: false,
+		init: ketchup_init,
+		loop: ketchup_loop,
+		draw: ketchup_draw,
 		walk_through: ketchup_walk_through};
 	t_object							r;
 	t_wall_data							*data;

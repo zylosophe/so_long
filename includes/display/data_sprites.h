@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/08 15:30:53 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:22:44 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_SPRITES_H
 # define DATA_SPRITES_H
 
-# define NB_SPRITES 14
+# define NB_SPRITES 20
 
 typedef enum e_spritetype
 {
@@ -36,7 +36,8 @@ extern const t_spritemeta	g_spritesmap[NB_SPRITES];
 
 typedef enum e_spritesmap_id
 {
-	CASE_WALL,
+	CASE_BORDER_TOP,
+	CASE_BORDER_BOTTOM,
 	CASE_FLOOR_1,
 	CASE_FLOOR_2,
 	SPR_SNAS,
@@ -50,6 +51,11 @@ typedef enum e_spritesmap_id
 	SPR_EXIT_INACTIVE,
 	SPR_EXIT_ACTIVE,
 	SPR_EXIT_USING,
+	SPR_FIRSK,
+	SPR_FIRSK_WALK_DOWN,
+	SPR_FIRSK_WALK_UP,
+	SPR_FIRSK_WALK_RIGHT,
+	SPR_FIRSK_WALK_LEFT,
 }	t_spritesmap_id;
 
 #endif

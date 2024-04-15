@@ -10,10 +10,14 @@ CODE =	$(addprefix main/, \
 			display1 display2 display_utils sprite \
 		) \
 		$(addprefix room/, \
-			visual room1 room2 room3 room_utils \
+			visual room1 room2 room3 room_utils1 room_utils2 camera \
+			pathfinding pathfinding_utils \
 			object_character object_snas object_wall object_ketchup object_exit \
+			object_firsk \
 		) \
-		utils/point
+		$(addprefix utils/, \
+			point1 point2 map \
+		)
 LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a
 LIBRARIES_LINK = mlx

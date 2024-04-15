@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:46:05 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 17:46:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:58:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef struct s_character
 	t_direction			direction;
 	t_sprite			spr;
 	int					walk_remaining_steps;
+	int					walk_steps_nb;
 	t_character_sprites	*sprites;
 }	t_character;
 
-void			character_draw(t_character *character, int x, int y);
+void			character_draw(t_character *character, t_point p);
 t_point			character_loop(t_character *character, t_point pos,
-					t_direction (*brain)(void));
-t_character		character_init(t_character_sprites *sprites);
+					t_direction (*brain)(t_point));
+t_character		character_init(t_character_sprites *sprites, int walk_steps_nb);
 
 #endif

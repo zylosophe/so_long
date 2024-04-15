@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:01:16 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 14:35:20 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:43:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static t_point	exit_loop(t_object *obj, t_point pos)
 	return (point_init(0, 0));
 }
 
-static void	exit_draw(t_object *obj, int x, int y)
+static void	exit_draw(t_object *obj, t_point p)
 {
 	t_exit_data *const	data = (t_exit_data *)(obj->data);
 
-	sprite_draw(x, y, &data->spr);
+	sprite_draw(p, &data->spr);
 }
 
 static bool	exit_walk_through(
@@ -47,7 +47,7 @@ static bool	exit_walk_through(
 t_object	exit_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {init: exit_init, loop: exit_loop, draw: exit_draw,
+		= {solid: true, init: exit_init, loop: exit_loop, draw: exit_draw,
 		walk_through: exit_walk_through};
 	t_object							r;
 	t_exit_data							*data;

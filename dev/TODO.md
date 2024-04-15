@@ -1,8 +1,3 @@
 - Change sprites for top and bottom borders
 - Map conditions
-  - 1 exit
-  - 1+ collectibles
-  - 1 start position
-  - rectangular
-  - walls all around
-  - a possible way to exit
+  - extension .ber

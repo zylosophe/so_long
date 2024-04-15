@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 14:22:51 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:50:29 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ t_object	*room_getobjectfaced(
 
 bool		room_canwalk(
 				t_room room, t_character *character, t_point pos);
+
+t_point		room_find(t_object_init objtype);
 
 #endif

@@ -6,18 +6,19 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 15:28:31 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:50:31 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 #include "room_utils.h"
 
-static void	room_fromfile3(t_room *room)
+static t_room	room_fromfile3(t_const_string path, t_room *room)
 {
 	int	x;
 	int	y;
 
+	room_checkwallsallaround(path, room);
 	x = -1;
 	while (++x < room->width)
 	{
@@ -26,7 +27,11 @@ static void	room_fromfile3(t_room *room)
 		{
 			if (y == 0 || y == room->height - 1)
 			{
-				room->surfaces[y * room->width + x] = sprite_init(CASE_WALL);
+				room->surfaces[y * room->width + x]
+					= sprite_init(CASE_BORDER_BOTTOM);
+				if (y == 0)
+					room->surfaces[y * room->width + x]
+						= sprite_init(CASE_BORDER_TOP);
 				room->objects[y * room->width + x] = NULL;
 			}
 			else
@@ -34,6 +39,7 @@ static void	room_fromfile3(t_room *room)
 						CASE_FLOOR_1 + (x + y) % 2);
 		}
 	}
+	return (*room);
 }
 
 static bool	room_fromfile2(
@@ -66,73 +72,75 @@ static bool	room_fromfile2(
 	return (true);
 }
 
-static t_room	room_fromfile(t_const_string path)
+static t_room	room_fromfile(t_room *r, t_const_string path)
 {
-	t_room				r;
 	int					fd;
 	const t_memclass	mc = mem_subclass(error_err, g_env.mc);
 	int					i;
 
-	room_getsize(mc, &r, path);
-	r.mc = mem_subclass(error_err, g_env.mc);
+	if (!str_eq(path + str_len(path) - 4, ".ber"))
+		error_str(path, "the room must be a '.ber' file.");
+	room_getsize(mc, r, path);
+	r->mc = mem_subclass(error_err, g_env.mc);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		error_perror(path);
-	r.surfaces = mem_alloc(error_err, r.mc, r.width * r.height
+	r->surfaces = mem_alloc(error_err, r->mc, r->width * r->height
 			* sizeof(t_sprite));
-	r.objects = mem_alloc(error_err, r.mc, r.width * r.height
+	r->objects = mem_alloc(error_err, r->mc, r->width * r->height
 			* sizeof(t_object *));
-	r.visuals = mem_alloc(error_err, r.mc, r.width * r.height
+	r->visuals = mem_alloc(error_err, r->mc, r->width * r->height
 			* sizeof(t_visual *));
 	i = -1;
-	while (++i < r.width * r.height)
-		r.visuals[i] = NULL;
+	while (++i < r->width * r->height)
+		r->visuals[i] = NULL;
 	i = 0;
-	while (room_fromfile2(fd, path, &i, &r))
+	while (room_fromfile2(fd, path, &i, r))
 		;
 	mem_freeall(mc);
-	room_fromfile3(&r);
-	return (r);
+	return (room_fromfile3(path, r));
 }
 
 void	room_init(t_const_string path)
 {
-	int	i;
-
-	g_env.room = room_fromfile(path);
+	room_fromfile(&g_env.room, path);
 	g_env.moves = 0;
 	g_env.ketchup = 0;
-	g_env.max_ketchup = 0;
-	i = -1;
-	while (++i < g_env.room.width * g_env.room.height)
-		if (g_env.room.objects[i]
-			&& g_env.room.objects[i]->type.init == ketchup_init)
-			g_env.max_ketchup++;
+	g_env.max_ketchup = room_count(ketchup_init);
+	if (room_count(exit_init) != 1)
+		error_str(path, "there must be exactly 1 exit.");
+	if (room_count(ketchup_init) < 1)
+		error_str(path, "there must be at least 1 collectible.");
+	if (room_count(snas_init) != 1)
+		error_str(path, "there must be exactly 1 start position.");
+	room_checkaccessibilities(path);
 }
 
 void	room_draw(t_room room)
 {
-	int			x;
-	int			y;
+	t_point		p;
 	t_object	*obj;
 
-	y = -1;
-	while (++y < room.height)
+	camera_sync();
+	p.y = -1;
+	while (++p.y < room.height)
 	{
-		x = -1;
-		while (++x < room.width)
-			sprite_draw(x * 50, y * 50, room.surfaces + y * room.width + x);
+		p.x = -1;
+		while (++p.x < room.width)
+			sprite_draw(
+				to_camera_pos(p), room.surfaces + p.y * room.width + p.x);
 	}
-	y = -1;
-	while (++y < room.height)
+	p.y = -1;
+	while (++p.y < room.height)
 	{
-		x = -1;
-		while (++x < room.width)
+		p.x = -1;
+		while (++p.x < room.width)
 		{
-			obj = room.objects[y * room.width + x];
+			obj = room.objects[p.y * room.width + p.x];
 			if (obj)
-				obj->type.draw(obj, x * 50, y * 50);
-			visual_loop(&room.visuals[y * room.width + x], x * 50, y * 50);
+				obj->type.draw(obj, to_camera_pos(p));
+			visual_loop(
+				&room.visuals[p.y * room.width + p.x], to_camera_pos(p));
 		}
 	}
 }
