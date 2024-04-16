@@ -17,7 +17,8 @@ CODE =	$(addprefix main/, \
 		) \
 		$(addprefix utils/, \
 			point1 point2 map \
-		)
+		) \
+		gameover/gameover
 LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a
 LIBRARIES_LINK = mlx

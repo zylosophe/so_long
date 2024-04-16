@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 17:41:18 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:48:12 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,18 @@
 # include "display/display.h"
 # include "display/sprite.h"
 
+# include "main/error.h"
+
 # include "room/visual.h"
 # include "room/object.h"
 # include "room/character.h"
+# include "gameover/gameover.h"
 # include "room/objects.h"
 # include "room/room.h"
 # include "room/camera.h"
 # include "room/pathfinding.h"
 
 # include "main/env.h"
-# include "main/error.h"
 # include "main/input.h"
 # include "main/timedloop.h"
 # include "main/main.h"

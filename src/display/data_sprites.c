@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 16:22:17 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:49:13 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,9 @@ const t_spritemeta	g_spritesmap[NB_SPRITES] = {
 {OBJECT_FIRSK_WALK_UP_1, 50, 50, ANIMATION, 4, 3},
 {OBJECT_FIRSK_WALK_RIGHT_1, 50, 50, ANIMATION, 2, 3},
 {OBJECT_FIRSK_WALK_LEFT_1, 50, 50, ANIMATION, 2, 3},
+{ANIM_KNIFEATTACK_1, 50, 50, ANIMATION_ONCE, 7, 2},
+{ANIM_EXPLOSION_PART1_1, 23, 50, ANIMATION_ONCE, 8, 1},
+{ANIM_EXPLOSION_PART2_1, 23, 50, ANIMATION_ONCE, 9, 1},
+{TEXT_GAMEOVER, 0, 0, ANIMATION, 1, 1},
+{TEXT_YOUDED, 0, 0, ANIMATION, 1, 1},
 };

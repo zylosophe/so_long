@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 16:20:07 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:39:22 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 61
+# define NB_ASSETS 87
 
 typedef struct s_assetmeta
 {
@@ -96,6 +96,32 @@ typedef enum e_assetsmap_id
 	OBJECT_FIRSK_WALK_UP_2,
 	OBJECT_FIRSK_WALK_UP_3,
 	OBJECT_FIRSK_WALK_UP_4,
+	ANIM_KNIFEATTACK_1,
+	ANIM_KNIFEATTACK_2,
+	ANIM_KNIFEATTACK_3,
+	ANIM_KNIFEATTACK_4,
+	ANIM_KNIFEATTACK_5,
+	ANIM_KNIFEATTACK_6,
+	ANIM_KNIFEATTACK_7,
+	ANIM_EXPLOSION_PART1_1,
+	ANIM_EXPLOSION_PART1_2,
+	ANIM_EXPLOSION_PART1_3,
+	ANIM_EXPLOSION_PART1_4,
+	ANIM_EXPLOSION_PART1_5,
+	ANIM_EXPLOSION_PART1_6,
+	ANIM_EXPLOSION_PART1_7,
+	ANIM_EXPLOSION_PART1_8,
+	ANIM_EXPLOSION_PART2_1,
+	ANIM_EXPLOSION_PART2_2,
+	ANIM_EXPLOSION_PART2_3,
+	ANIM_EXPLOSION_PART2_4,
+	ANIM_EXPLOSION_PART2_5,
+	ANIM_EXPLOSION_PART2_6,
+	ANIM_EXPLOSION_PART2_7,
+	ANIM_EXPLOSION_PART2_8,
+	ANIM_EXPLOSION_PART2_9,
+	TEXT_GAMEOVER,
+	TEXT_YOUDED,
 }	t_assetsmap_id;
 
 # define OBJECT_SNAS OBJECT_SNAS_DOWN

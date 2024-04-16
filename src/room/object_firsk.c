@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:55:04 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:01:36 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:19:43 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_object	firsk_init(t_memclass mc)
 
 	r.type = type;
 	data = mem_alloc(error_err, mc, sizeof(t_firsk_data));
-	data->character = character_init((t_character_sprites *)&sprites, 5);
+	data->character = character_init((t_character_sprites *)&sprites, 4);
 	r.data = data;
 	return (r);
 }

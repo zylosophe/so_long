@@ -6,11 +6,13 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 17:57:05 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:26:57 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
+
+t_loopfunctions	g_loopfunctions;
 
 int	expose_hook(void)
 {
@@ -27,9 +29,9 @@ int	close_hook(void)
 static void	loop(void)
 {
 	input_loop();
-	room_loop(g_env.room);
+	g_loopfunctions.loop();
 	display_erase();
-	room_draw(g_env.room);
+	g_loopfunctions.draw();
 	display_flush();
 }
 
@@ -41,6 +43,8 @@ int	loop_hook(void)
 
 int	main(int argc, t_const_string *argv)
 {
+	g_loopfunctions.loop = room_loop;
+	g_loopfunctions.draw = room_draw;
 	if (argc != 2)
 		error_str("so_long", "takes 1 argument");
 	g_env.mc = mem_newclass(error_err);

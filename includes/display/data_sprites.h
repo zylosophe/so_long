@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 16:22:44 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:40:16 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_SPRITES_H
 # define DATA_SPRITES_H
 
-# define NB_SPRITES 20
+# define NB_SPRITES 25
 
 typedef enum e_spritetype
 {
@@ -56,6 +56,11 @@ typedef enum e_spritesmap_id
 	SPR_FIRSK_WALK_UP,
 	SPR_FIRSK_WALK_RIGHT,
 	SPR_FIRSK_WALK_LEFT,
+	SPR_KNIFEATTACK,
+	SPR_EXPLOSION_1,
+	SPR_EXPLOSION_2,
+	SPR_GAMEOVER,
+	SPR_YOUDED,
 }	t_spritesmap_id;
 
 #endif

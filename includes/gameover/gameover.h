@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   gameover.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 13:39:54 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 13:17:59 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/04/16 19:52:08 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/04/17 13:46:08 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef GAMEOVER_H
+# define GAMEOVER_H
 
-typedef struct s_loopfunctions
-{
-	void	(*loop)(void);
-	void	(*draw)(void);
-}			t_loopfunctions;
-
-extern t_loopfunctions	g_loopfunctions;
-
-int	main(int argc, t_const_string *argv);
+void	gameover_byfirskattack(t_character *character);
 
 #endif

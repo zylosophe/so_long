@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   gameover_utils.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 13:39:54 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 13:17:59 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/04/17 18:19:30 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/04/17 18:20:07 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef GAMEOVER_UTILS_H
+# define GAMEOVER_UTILS_H
 
-typedef struct s_loopfunctions
+# include "includes.h"
+
+typedef struct s_gameover_env
 {
-	void	(*loop)(void);
-	void	(*draw)(void);
-}			t_loopfunctions;
-
-extern t_loopfunctions	g_loopfunctions;
-
-int	main(int argc, t_const_string *argv);
+	t_point		snaspos;
+	t_sprite	spr_snas;
+	t_sprite	spr_attack;
+	t_sprite	spr_gameover;
+	t_sprite	spr_youded;
+	t_sprite	spr_explosion1;
+	t_sprite	spr_explosion2;
+	int			state;
+}	t_gameover_env;
 
 #endif

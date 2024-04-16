@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:50:31 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:14:45 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,31 +116,31 @@ void	room_init(t_const_string path)
 	room_checkaccessibilities(path);
 }
 
-void	room_draw(t_room room)
+void	room_draw(void)
 {
-	t_point		p;
-	t_object	*obj;
+	t_point			p;
+	t_object		*obj;
 
 	camera_sync();
 	p.y = -1;
-	while (++p.y < room.height)
+	while (++p.y < g_env.room.height)
 	{
 		p.x = -1;
-		while (++p.x < room.width)
-			sprite_draw(
-				to_camera_pos(p), room.surfaces + p.y * room.width + p.x);
+		while (++p.x < g_env.room.width)
+			sprite_draw(to_camera_pos(p),
+				g_env.room.surfaces + p.y * g_env.room.width + p.x);
 	}
 	p.y = -1;
-	while (++p.y < room.height)
+	while (++p.y < g_env.room.height)
 	{
 		p.x = -1;
-		while (++p.x < room.width)
+		while (++p.x < g_env.room.width)
 		{
-			obj = room.objects[p.y * room.width + p.x];
+			obj = g_env.room.objects[p.y * g_env.room.width + p.x];
 			if (obj)
 				obj->type.draw(obj, to_camera_pos(p));
-			visual_loop(
-				&room.visuals[p.y * room.width + p.x], to_camera_pos(p));
+			visual_loop(&g_env.room.visuals[p.y * g_env.room.width + p.x],
+				to_camera_pos(p));
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:14:49 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 15:21:02 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:21:32 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static bool	isinlist(void *addr, t_list list)
 	return (false);
 }
 
-void	room_loop(t_room room)
+void	room_loop(void)
 {
 	t_point				pos;
 	t_object			*object;
@@ -49,16 +49,16 @@ void	room_loop(t_room room)
 
 	objects_done = list_createempty(mc);
 	pos.x = 0;
-	while (pos.x < room.width)
+	while (pos.x < g_env.room.width)
 	{
 		pos.y = 0;
-		while (pos.y < room.height)
+		while (pos.y < g_env.room.height)
 		{
-			object = room.objects[pos.y * room.width + pos.x];
+			object = g_env.room.objects[pos.y * g_env.room.width + pos.x];
 			if (object && !isinlist(object, objects_done))
 			{
 				move = object->type.loop(object, pos);
-				moveobject(room, pos, move);
+				moveobject(g_env.room, pos, move);
 				list_add(error_err, &objects_done, object);
 			}
 			pos.y++;

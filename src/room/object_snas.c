@@ -6,11 +6,21 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:10:32 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:20:51 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
+
+static bool	snas_walk_through(t_object *obj, t_character *character,
+	t_point pos)
+{
+	(void)obj;
+	(void)character;
+	(void)pos;
+	gameover_byfirskattack(&((t_snas_data *)obj->data)->character);
+	return (false);
+}
 
 static t_direction	snas_brain(t_point pos)
 {
@@ -45,7 +55,7 @@ t_object	snas_init(t_memclass mc)
 {
 	static const t_objecttype			type
 		= {solid: false, init: snas_init, loop: snas_loop, draw: snas_draw,
-		walk_through: NULL};
+		walk_through: snas_walk_through};
 	static const t_character_sprites	sprites = {
 		still: SPR_SNAS,
 		walk_left: SPR_SNAS_WALK_LEFT,
