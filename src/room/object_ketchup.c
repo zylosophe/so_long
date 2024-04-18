@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 15:57:45 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:14:55 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static bool	ketchup_walk_through(
 	(void)obj;
 	(void)character;
 	g_env.ketchup++;
-	visual_addtoroom(SPR_KETCHUP_FADE, pos);
+	visual_addtoroom(sprite_init(SPR_KETCHUP_FADE), pos);
 	return (true);
 }
 

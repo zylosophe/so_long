@@ -3,7 +3,7 @@ NAME = so_long
 SRCS = src/
 INCLUDES = includes/
 CODE =	$(addprefix main/, \
-			main error env input timedloop \
+			main error env input timedloop levels \
 		) \
 		$(addprefix display/, \
 			data_assets data_sprites \

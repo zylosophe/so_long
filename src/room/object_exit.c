@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:01:16 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 15:56:50 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:25:16 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,15 @@ static bool	exit_walk_through(
 		t_object *obj, t_character *character, t_point pos)
 {
 	t_exit_data *const	data = (t_exit_data *)(obj->data);
+	const t_point		snas_p = room_find(snas_init);
 
 	(void)character;
+	(void)pos;
 	if (!data->active)
 		return (false);
-	visual_addtoroom(SPR_EXIT_USING, pos);
+	((t_snas_data *)g_env.room.objects[snas_p.y * g_env.room.width + snas_p.x]
+			->data)->state++;
+	visual_addtoroom(sprite_init(SPR_EXIT_REMAINING), pos);
 	return (true);
 }
 

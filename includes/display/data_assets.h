@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:54:58 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:05:31 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 88
+# define NB_ASSETS 97
 
 typedef struct s_assetmeta
 {
@@ -81,6 +81,15 @@ typedef enum e_assetsmap_id
 	OBJECT_EXIT_USING2_5,
 	OBJECT_EXIT_USING2_6,
 	OBJECT_EXIT_USING2_7,
+	OBJECT_EXIT_TP_1,
+	OBJECT_EXIT_TP_2,
+	OBJECT_EXIT_TP_3,
+	OBJECT_EXIT_TP_4,
+	OBJECT_EXIT_TP_5,
+	OBJECT_EXIT_TP_6,
+	OBJECT_EXIT_TP_7,
+	OBJECT_EXIT_TP_8,
+	OBJECT_EXIT_TP_9,
 	OBJECT_FIRSK_DOWN,
 	OBJECT_FIRSK_UP,
 	OBJECT_FIRSK_LEFT,

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:47:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 13:54:23 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:17:16 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 # define OBJECTS_H
 
 // SNAS
+typedef enum e_snas_state
+{
+	SNAS_STATE_DEFAULT,
+	SNAS_STATE_GOING_TO_EXIT,
+	SNAS_STATE_DISAPPEARS,
+	SNAS_STATE_WAITING_TO_WIN,
+}	t_snas_state;
+
 typedef struct s_snas_data
 {
-	t_character	character;
-}				t_snas_data;
+	t_character		character;
+	t_snas_state	state;
+	t_sprite		tp_spr;
+	int				wait_before_win;
+}					t_snas_data;
 
 t_object		snas_init(t_memclass mc);
 

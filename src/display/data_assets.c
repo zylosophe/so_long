@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:27:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:57:37 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 16:52:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,15 @@ const t_assetmeta	g_assetsmap[NB_ASSETS] = {
 {"object/exit/using2/5", 50, 100, 50, 100, false},
 {"object/exit/using2/6", 50, 100, 50, 100, false},
 {"object/exit/using2/7", 50, 100, 50, 100, false},
+{"object/exit/tp/1", 50, 100, 30, 100, false},
+{"object/exit/tp/2", 50, 100, 30, 100, false},
+{"object/exit/tp/3", 50, 100, 30, 100, false},
+{"object/exit/tp/4", 50, 100, 30, 100, false},
+{"object/exit/tp/5", 50, 100, 30, 100, false},
+{"object/exit/tp/6", 50, 100, 30, 100, false},
+{"object/exit/tp/7", 50, 100, 30, 100, false},
+{"object/exit/tp/8", 50, 100, 30, 100, false},
+{"object/exit/tp/9", 50, 100, 30, 100, false},
 	// firsk
 {"object/firsk/down", 50, 110, 30, 100, false},
 {"object/firsk/up", 40, 100, 30, 100, false},

@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:59:33 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:24:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_SPRITES_H
 # define DATA_SPRITES_H
 
-# define NB_SPRITES 26
+# define NB_SPRITES 27
 
 typedef enum e_spritetype
 {
@@ -51,7 +51,8 @@ typedef enum e_spritesmap_id
 	SPR_KETCHUP_FADE,
 	SPR_EXIT_INACTIVE,
 	SPR_EXIT_ACTIVE,
-	SPR_EXIT_USING,
+	SPR_EXIT_REMAINING,
+	SPR_EXIT_TP,
 	SPR_FIRSK,
 	SPR_FIRSK_WALK_DOWN,
 	SPR_FIRSK_WALK_UP,

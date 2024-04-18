@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:35:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 17:08:14 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:15:45 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ void	visual_loop(t_visual **visual, t_point p)
 	}
 }
 
-void	visual_addtoroom(t_spritesmap_id sprid, t_point pos)
+void	visual_addtoroom(t_sprite spr, t_point pos)
 {
 	t_visual	*visual;
-	t_sprite	spr;
 
 	visual = mem_alloc(error_err, g_env.room.mc, sizeof(t_visual));
-	spr = sprite_init(sprid);
 	visual->spr = spr;
 	g_env.room.visuals[pos.y * g_env.room.width + pos.x] = visual;
 }

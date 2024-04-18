@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 15:58:11 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:29:33 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static bool	snas_walk_through(t_object *obj, t_character *character,
 	(void)obj;
 	(void)character;
 	(void)pos;
-	gameover_byfirskattack(&((t_snas_data *)obj->data)->character);
+	if (!((t_snas_data *)obj->data)->state)
+		gameover_byfirskattack(&((t_snas_data *)obj->data)->character);
 	return (false);
 }
 
@@ -38,9 +39,27 @@ static t_direction	snas_brain(t_point pos)
 
 static t_point	snas_loop(t_object *obj, t_point pos)
 {
-	t_point	r;
+	t_snas_data *const	data = (t_snas_data *)obj->data;
+	t_point				r;
 
-	r = character_loop(&((t_snas_data *)obj->data)->character, pos, snas_brain);
+	if (data->state == SNAS_STATE_GOING_TO_EXIT
+		&& !data->character.walk_remaining_steps)
+	{
+		data->state++;
+		data->tp_spr = sprite_init(SPR_EXIT_TP);
+	}
+	if (data->state == SNAS_STATE_WAITING_TO_WIN)
+	{
+		data->wait_before_win--;
+		if (!data->wait_before_win)
+		{
+			win();
+			return (point_init(0, 0));
+		}
+	}
+	if (data->state > SNAS_STATE_GOING_TO_EXIT)
+		return (point_init(0, 0));
+	r = character_loop(&data->character, pos, snas_brain);
 	if (r.x || r.y)
 		g_env.moves++;
 	return (r);
@@ -48,7 +67,20 @@ static t_point	snas_loop(t_object *obj, t_point pos)
 
 static void	snas_draw(t_object *obj, t_point p)
 {
-	return (character_draw(&((t_snas_data *)obj->data)->character, p));
+	t_snas_data *const	data = (t_snas_data *)obj->data;
+
+	if (data->state <= SNAS_STATE_GOING_TO_EXIT)
+		return (character_draw(&data->character, p));
+	if (data->state == SNAS_STATE_DISAPPEARS)
+	{
+		if (!sprite_draw(p, &data->tp_spr))
+		{
+			data->state = SNAS_STATE_WAITING_TO_WIN;
+			data->wait_before_win = 10;
+		}
+		return ;
+	}
+	return ;
 }
 
 t_object	snas_init(t_memclass mc)
@@ -70,6 +102,7 @@ t_object	snas_init(t_memclass mc)
 	r.type = type;
 	data = mem_alloc(error_err, mc, sizeof(t_snas_data));
 	data->character = character_init((t_character_sprites *)&sprites, 4);
+	data->state = SNAS_STATE_DEFAULT;
 	r.data = data;
 	return (r);
 }

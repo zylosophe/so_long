@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 13:26:57 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:04:37 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	loop_hook(void)
 
 int	main(int argc, t_const_string *argv)
 {
-	g_loopfunctions.loop = room_loop;
-	g_loopfunctions.draw = room_draw;
 	if (argc != 2)
 		error_str("so_long", "takes 1 argument");
 	g_env.mc = mem_newclass(error_err);
@@ -57,7 +55,7 @@ int	main(int argc, t_const_string *argv)
 			WINDOW_TITLE);
 	if (!g_env.win)
 		error_err("mlx_new_window() failed");
-	room_init(argv[1]);
+	init_levels(1, &argv[1]);
 	mlx_expose_hook(g_env.win, expose_hook, NULL);
 	mlx_hook(g_env.win, DestroyNotify, StructureNotifyMask, close_hook, NULL);
 	mlx_loop_hook(g_env.mlx, loop_hook, NULL);
