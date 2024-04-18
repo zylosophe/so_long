@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 16:20:51 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:58:11 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static void	snas_draw(t_object *obj, t_point p)
 t_object	snas_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {solid: false, init: snas_init, loop: snas_loop, draw: snas_draw,
+		= {solid_firsk: false, solid_snas: false,
+		init: snas_init, loop: snas_loop, draw: snas_draw,
 		walk_through: snas_walk_through};
 	static const t_character_sprites	sprites = {
 		still: SPR_SNAS,

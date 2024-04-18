@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:55:04 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:51:12 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:57:21 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static void	firsk_draw(t_object *obj, t_point p)
 t_object	firsk_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {init: firsk_init, loop: firsk_loop, draw: firsk_draw,
+		= {solid_firsk: false, solid_snas: false,
+		init: firsk_init, loop: firsk_loop, draw: firsk_draw,
 		walk_through: NULL};
 	static const t_character_sprites	sprites = {
 		still: SPR_FIRSK,
