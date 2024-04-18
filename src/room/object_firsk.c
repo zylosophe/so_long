@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:55:04 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 15:57:21 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:37:10 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ static t_point	firsk_loop(t_object *obj, t_point pos)
 
 	r = character_loop(
 			&((t_firsk_data *)obj->data)->character, pos, firsk_brain);
-	if (r.x || r.y)
-		g_env.moves++;
 	return (r);
 }
 
