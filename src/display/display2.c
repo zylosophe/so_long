@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:05:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 17:22:45 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:03:27 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,10 @@ static inline t_imglimits	get_limits(t_point p, t_image img)
 {
 	t_imglimits	r;
 
-	r.xmin = -p.x;
-	if (img.asset.limit_left > r.xmin)
-		r.xmin = img.asset.limit_left;
-	r.xmax = WINDOW_WIDTH - p.x;
-	if (img.asset.limit_right < r.xmax)
-		r.xmax = img.asset.limit_right;
-	r.ymin = -p.y;
-	if (img.asset.limit_up > r.ymin)
-		r.ymin = img.asset.limit_up;
-	r.ymax = WINDOW_HEIGHT - p.y;
-	if (img.asset.limit_down < r.ymax)
-		r.ymax = img.asset.limit_down;
+	r.xmin = fmax(-p.x, fmax(img.asset.limit_left, 0));
+	r.xmax = fmin(WINDOW_WIDTH - p.x, fmin(img.asset.limit_right, img.width));
+	r.ymin = fmax(-p.y, fmax(img.asset.limit_up, 0));
+	r.ymax = fmin(WINDOW_HEIGHT - p.y, fmin(img.asset.limit_down, img.height));
 	return (r);
 }
 

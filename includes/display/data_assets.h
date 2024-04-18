@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 17:05:31 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 20:07:12 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 97
+# define NB_ASSETS 107
 
 typedef struct s_assetmeta
 {
@@ -130,6 +130,16 @@ typedef enum e_assetsmap_id
 	ANIM_EXPLOSION_PART2_7,
 	ANIM_EXPLOSION_PART2_8,
 	ANIM_EXPLOSION_PART2_9,
+	TEXT_LITTLE_0,
+	TEXT_LITTLE_1,
+	TEXT_LITTLE_2,
+	TEXT_LITTLE_3,
+	TEXT_LITTLE_4,
+	TEXT_LITTLE_5,
+	TEXT_LITTLE_6,
+	TEXT_LITTLE_7,
+	TEXT_LITTLE_8,
+	TEXT_LITTLE_9,
 	TEXT_GAMEOVER,
 	TEXT_YOUDED,
 }	t_assetsmap_id;

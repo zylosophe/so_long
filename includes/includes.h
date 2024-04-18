@@ -6,13 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 17:59:26 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:00:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INCLUDES_H
 # define INCLUDES_H
 
+# include <math.h>
 # include <fcntl.h>
 # include <time.h>
 # include <stdbool.h>
@@ -35,6 +36,7 @@
 # include "display/data_sprites.h"
 # include "display/display.h"
 # include "display/sprite.h"
+# include "display/text.h"
 
 # include "main/error.h"
 

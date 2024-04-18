@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:23:43 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:34:08 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:08:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int			room_count(t_object_init objtype);
 void		room_checkwallsallaround(t_const_string path, t_room *room);
 t_point		to_camera_pos(t_point p);
 void		room_checkaccessibilities(t_const_string path);
+void		room_drawsurfaceandobjects(void);
 
 #endif

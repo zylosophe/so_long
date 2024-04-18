@@ -1,0 +1,3 @@
+- use https://www.fontbolt.com/font/comic-sans/
+- black on transparent
+- convert it using the good scripts

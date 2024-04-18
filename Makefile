@@ -7,7 +7,7 @@ CODE =	$(addprefix main/, \
 		) \
 		$(addprefix display/, \
 			data_assets data_sprites \
-			display1 display2 display_utils sprite \
+			display1 display2 display_utils sprite text \
 		) \
 		$(addprefix room/, \
 			visual room1 room2 room3 room_utils1 room_utils2 camera \
