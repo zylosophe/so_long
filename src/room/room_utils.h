@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:23:43 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:49:56 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:34:08 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct s_roomcase
 {
 	char			c;
 	t_object_init	object;
+	t_spritesmap_id	surface;
 }					t_roomcase;
 
 void		room_getsize(t_memclass mc, t_room *r, t_const_string path);

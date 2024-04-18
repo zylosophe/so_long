@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:21:33 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:59:54 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:51:46 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include "room_utils.h"
 
 static t_roomcase	g_roomcases[] = {
-{c: '0', object: NULL},
-{c: '1', object: wall_init},
-{c: 'P', object: snas_init},
-{c: 'C', object: ketchup_init},
-{c: 'E', object: exit_init},
-{c: 'F', object: firsk_init},
+{c: '0', object: NULL, surface: CASE_FLOOR_1},
+{c: '1', object: wall_init, surface: CASE_FLOOR_1},
+{c: 'P', object: snas_init, surface: CASE_FLOOR_1},
+{c: 'C', object: ketchup_init, surface: CASE_FLOOR_1},
+{c: 'E', object: exit_init, surface: CASE_FLOOR_1},
+{c: 'F', object: firsk_init, surface: CASE_FLOOR_1},
+{c: 'B', object: NULL, surface: CASE_BRIDGE},
 {c: '\0'}
 };
 
@@ -104,10 +105,10 @@ void	room_checkaccessibilities(t_const_string path)
 		{
 			obj = g_env.room.objects[p.y * g_env.room.width + p.x];
 			if (obj && obj->type.init == ketchup_init)
-				if (pathfinding(snas_pos, p) == NO_DIRECTION)
+				if (pathfinding(snas_pos, p, false) == NO_DIRECTION)
 					error_str(path, "all collectibles must be accessible.");
 		}
 	}
-	if (pathfinding(snas_pos, room_find(exit_init)) == NO_DIRECTION)
+	if (pathfinding(snas_pos, room_find(exit_init), false) == NO_DIRECTION)
 		error_str(path, "the exit must be accessible.");
 }

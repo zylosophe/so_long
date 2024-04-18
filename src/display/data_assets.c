@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:27:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 17:50:28 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:57:37 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
  * Path of each asset relative to assets/, without extension.
  */
 const t_assetmeta	g_assetsmap[NB_ASSETS] = {
-{"floor/1", 50, 100, 50, 100, true},
-{"floor/2", 50, 100, 50, 100, true},
+{"floor/1", 50, 100, 50, 125, true},
+{"floor/2", 50, 100, 50, 125, true},
 	// WALL
-{"wall/border_top", 50, 100, 50, 100, true},
+{"wall/border_top", 50, 100, 50, 125, true},
 {"wall/border_bottom", 50, 100, 50, 100, true},
 {"wall/inner", 50, 100, 30, 100, false},
+	// BRIDGE
+{"wall/bridge", 50, 100, 50, 125, false},
 	// OBJECTS
 	// snas
 {"object/snas/down", 50, 100, 30, 100, false},

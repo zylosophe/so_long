@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 17:40:16 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:59:33 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_SPRITES_H
 # define DATA_SPRITES_H
 
-# define NB_SPRITES 25
+# define NB_SPRITES 26
 
 typedef enum e_spritetype
 {
@@ -40,6 +40,7 @@ typedef enum e_spritesmap_id
 	CASE_BORDER_BOTTOM,
 	CASE_FLOOR_1,
 	CASE_FLOOR_2,
+	CASE_BRIDGE,
 	SPR_SNAS,
 	SPR_SNAS_WALK_DOWN,
 	SPR_SNAS_WALK_UP,

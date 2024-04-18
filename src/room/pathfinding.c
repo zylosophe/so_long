@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:19:19 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 17:38:06 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:00:51 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static t_direction	pathfinding_checkdirections(
 	return (NO_DIRECTION);
 }
 
-t_direction	pathfinding(t_point start, t_point finish)
+t_direction	pathfinding(t_point start, t_point finish, bool solid_bridge)
 {
 	const t_pathfinding_env	env = {
 		start: start,
@@ -77,7 +77,7 @@ t_direction	pathfinding(t_point start, t_point finish)
 
 	if (start.x == finish.x && start.y == finish.y)
 		return (NO_DIRECTION);
-	map = init_map(env.mc);
+	map = init_map(env.mc, solid_bridge);
 	tocheck = inittochecklist(env.mc, map.dim, start);
 	case_checking = start;
 	while (case_checking.x != -1 || case_checking.y != -1)

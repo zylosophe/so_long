@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 17:39:22 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:54:58 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 87
+# define NB_ASSETS 88
 
 typedef struct s_assetmeta
 {
@@ -40,6 +40,7 @@ typedef enum e_assetsmap_id
 	WALL_BORDER_TOP,
 	WALL_BORDER_BOTTOM,
 	WALL_INNER,
+	BRIDGE,
 	OBJECT_SNAS_DOWN,
 	OBJECT_SNAS_UP,
 	OBJECT_SNAS_LEFT,

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 14:14:45 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:36:25 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static t_room	room_fromfile3(t_const_string path, t_room *room)
 {
 	int	x;
 	int	y;
+	int	i;
 
 	room_checkwallsallaround(path, room);
 	x = -1;
@@ -25,18 +26,17 @@ static t_room	room_fromfile3(t_const_string path, t_room *room)
 		y = -1;
 		while (++y < room->height)
 		{
+			i = y * room->width + x;
 			if (y == 0 || y == room->height - 1)
 			{
-				room->surfaces[y * room->width + x]
-					= sprite_init(CASE_BORDER_BOTTOM);
+				room->surfaces[i] = sprite_init(CASE_BORDER_BOTTOM);
 				if (y == 0)
-					room->surfaces[y * room->width + x]
-						= sprite_init(CASE_BORDER_TOP);
-				room->objects[y * room->width + x] = NULL;
+					room->surfaces[i] = sprite_init(CASE_BORDER_TOP);
+				room->objects[i] = NULL;
 			}
 			else
-				room->surfaces[y * room->width + x] = sprite_init(
-						CASE_FLOOR_1 + (x + y) % 2);
+				if (room->surfaces[i].meta->first_frame == FLOOR_1)
+					room->surfaces[i] = sprite_init(CASE_FLOOR_1 + (x + y) % 2);
 		}
 	}
 	return (*room);
@@ -57,14 +57,14 @@ static bool	room_fromfile2(
 	while (*line && *line != '\n')
 	{
 		roomcase = getroomcase(path, *line);
+		room->objects[*i] = NULL;
 		if (roomcase->object)
 		{
 			room->objects[*i] = mem_alloc(error_err, room->mc,
 					sizeof(t_object));
 			*(room->objects[*i]) = roomcase->object(room->mc);
 		}
-		else
-			room->objects[*i] = NULL;
+		room->surfaces[*i] = sprite_init(roomcase->surface);
 		line++;
 		(*i)++;
 	}

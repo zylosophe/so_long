@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:55:04 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 16:19:43 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:51:12 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_direction	firsk_brain(t_point pos)
 {
-	return (pathfinding(pos, room_find(snas_init)));
+	return (pathfinding(pos, room_find(snas_init), true));
 }
 
 static t_point	firsk_loop(t_object *obj, t_point pos)

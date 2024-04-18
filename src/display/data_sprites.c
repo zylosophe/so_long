@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 17:49:13 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:00:05 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ const t_spritemeta	g_spritesmap[NB_SPRITES] = {
 {WALL_BORDER_BOTTOM, 50, 50, ANIMATION, 1, 1},
 {FLOOR_1, 50, 50, ANIMATION, 1, 1},
 {FLOOR_2, 50, 50, ANIMATION, 1, 1},
+{BRIDGE, 50, 50, ANIMATION, 1, 1},
 {OBJECT_SNAS, 50, 50, CHARACTER_STILL, 0, 0},
 {OBJECT_SNAS_WALK_DOWN_1, 50, 50, ANIMATION, 4, 3},
 {OBJECT_SNAS_WALK_UP_1, 50, 50, ANIMATION, 4, 3},

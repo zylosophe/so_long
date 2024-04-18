@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:13:05 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/12 17:50:50 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:50:36 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "includes.h"
 
-t_direction	pathfinding(t_point start, t_point finish);
+t_direction	pathfinding(t_point start, t_point finish, bool solid_bridge);
 
 #endif

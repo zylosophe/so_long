@@ -6,36 +6,43 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 17:35:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 17:37:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:03:03 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 #include "pathfinding_utils.h"
 
-void	path_map_case_init(t_point p, void **el, void *mc)
+void	path_map_case_init(t_point p, void **el, void *args_p)
 {
-	const t_room			room = g_env.room;
-	const t_object			*obj = room.objects[p.y * room.width + p.x];
-	const t_path_map_case	r = {
+	const t_path_map_case_init_args	*args = (t_path_map_case_init_args *)args_p;
+	const t_room					room = g_env.room;
+	const t_object					*obj = room.objects[p.y * room.width + p.x];
+	const t_sprite					*surface
+		= &room.surfaces[p.y * room.width + p.x];
+	const t_path_map_case			r = {
 		to_check: false,
 		before: point_init(-1, -1),
 		solid: p.x == 0 || p.x == room.width - 1 || p.y == 0
 		|| p.y == room.height - 1 || (obj && obj->type.solid)
+		|| (surface->meta->first_frame == BRIDGE && args->solid_bridge)
 	};
 
-	*el = mem_alloc(error_err, mc, sizeof(r));
+	*el = mem_alloc(error_err, args->mc, sizeof(r));
 	**(t_path_map_case **)el = r;
 }
 
-t_path_map	init_map(t_memclass mc)
+t_path_map	init_map(t_memclass mc, bool solid_bridge)
 {
-	t_path_map	r;
+	t_path_map					r;
+	t_path_map_case_init_args	args;
 
 	r.dim.x = g_env.room.width;
 	r.dim.y = g_env.room.height;
 	r = map_init(mc, point_init(g_env.room.width, g_env.room.height));
-	map_foreach(&r, path_map_case_init, mc);
+	args.mc = mc;
+	args.solid_bridge = solid_bridge;
+	map_foreach(&r, path_map_case_init, &args);
 	return (r);
 }
 
