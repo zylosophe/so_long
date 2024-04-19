@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:49:39 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 14:13:01 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:35:03 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ask_retry(bool current)
 		{
 			g_env.moves = 0;
 			g_env.level_current = 0;
+			g_env.level_to_load = 0;
 		}
 		init_level();
 	}
@@ -34,6 +35,8 @@ void	init_levels(int count, const t_const_string *srcs)
 	g_env.moves = 0;
 	g_env.levels = srcs;
 	g_env.level_count = count;
+	g_env.level_current = 0;
+	g_env.level_to_load = 0;
 	if (count <= 0)
 		error_err("if you don't want to play any level don't start the game");
 	init_level();
@@ -61,12 +64,10 @@ static void	end_draw(void)
 
 void	win(void)
 {
-	g_env.level_current++;
-	if (g_env.level_current >= g_env.level_count)
+	g_env.level_to_load = g_env.level_current + 1;
+	if (g_env.level_to_load >= g_env.level_count)
 	{
 		g_loopfunctions.loop = end_loop;
 		g_loopfunctions.draw = end_draw;
 	}
-	else
-		init_level();
 }

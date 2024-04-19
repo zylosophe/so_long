@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 14:14:09 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 19:39:18 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_env
 	const t_const_string	*levels;
 	int						level_count;
 	int						level_current;
+	int						level_to_load;
 	// room
 	t_room					room;
 	t_camera				camera;

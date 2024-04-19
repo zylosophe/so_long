@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 14:11:01 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:30:19 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int	close_hook(void)
 
 static void	loop(void)
 {
+	if (g_loopfunctions.loop == room_loop
+		&& g_env.level_to_load != g_env.level_current)
+	{
+		g_env.level_current = g_env.level_to_load;
+		init_level();
+	}
 	input_loop();
 	g_loopfunctions.loop();
 	display_erase();
