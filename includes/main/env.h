@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 12:29:10 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:03:49 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,29 @@
 
 typedef struct s_env
 {
+	// GLOBAL
 	t_memclass		mc;
+
+	// IO
+	// display
 	void			*mlx;
 	void			*win;
-	t_room			room;
+	// input
 	bool			input[4];
 	bool			enter;
-	int				ketchup;
-	int				max_ketchup;
-	int				moves;
-	t_camera		camera;
+
+	// GAME
+	// levels
 	t_const_string	*levels;
 	int				level_count;
 	int				level_current;
+	// room
+	t_room			room;
+	t_camera		camera;
+	int				ketchup;
+	int				max_ketchup;
+	// moves
+	int				moves;
 }					t_env;
 
 extern t_env	g_env;
