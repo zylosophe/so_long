@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:49:39 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 13:18:45 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:13:01 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ask_retry(bool current)
 	}
 }
 
-void	init_levels(int count, t_const_string *srcs)
+void	init_levels(int count, const t_const_string *srcs)
 {
 	g_env.moves = 0;
 	g_env.levels = srcs;
