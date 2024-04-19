@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 18:29:33 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 14:54:49 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static bool	snas_walk_through(t_object *obj, t_character *character,
 	(void)obj;
 	(void)character;
 	(void)pos;
-	if (!((t_snas_data *)obj->data)->state)
+	if (((t_snas_data *)obj->data)->state <= SNAS_STATE_GOING_TO_EXIT)
 		gameover_byfirskattack(&((t_snas_data *)obj->data)->character);
 	return (false);
 }
