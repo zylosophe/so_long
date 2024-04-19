@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:27:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 20:52:29 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:01:22 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,16 +122,33 @@ const t_assetmeta	g_assetsmap[NB_ASSETS] = {
 {"anim/explosion_part2_8", 0, 100, 0, 141, false},
 {"anim/explosion_part2_9", 0, 100, 0, 141, false},
 	// TEXT
-{"text/little/0", 0, 600, 0, 100, false},
-{"text/little/1", 0, 600, 0, 100, false},
-{"text/little/2", 0, 600, 0, 100, false},
-{"text/little/3", 0, 600, 0, 100, false},
-{"text/little/4", 0, 600, 0, 100, false},
-{"text/little/5", 0, 600, 0, 100, false},
-{"text/little/6", 0, 600, 0, 100, false},
-{"text/little/7", 0, 600, 0, 100, false},
-{"text/little/8", 0, 600, 0, 100, false},
-{"text/little/9", 0, 600, 0, 100, false},
-{"text/gameover", 100, 510, 120, 190, false},
-{"text/youded", 240, 360, 230, 280, false},
+	// little
+{"text/little/0", 0, 600, 0, 400, false},
+{"text/little/1", 0, 600, 0, 400, false},
+{"text/little/2", 0, 600, 0, 400, false},
+{"text/little/3", 0, 600, 0, 400, false},
+{"text/little/4", 0, 600, 0, 400, false},
+{"text/little/5", 0, 600, 0, 400, false},
+{"text/little/6", 0, 600, 0, 400, false},
+{"text/little/7", 0, 600, 0, 400, false},
+{"text/little/8", 0, 600, 0, 400, false},
+{"text/little/9", 0, 600, 0, 400, false},
+{"text/little/pressentertoretry", 0, 600, 0, 400, false},
+	// regular
+{"text/regular/0", 0, 600, 0, 400, false},
+{"text/regular/1", 0, 600, 0, 400, false},
+{"text/regular/2", 0, 600, 0, 400, false},
+{"text/regular/3", 0, 600, 0, 400, false},
+{"text/regular/4", 0, 600, 0, 400, false},
+{"text/regular/5", 0, 600, 0, 400, false},
+{"text/regular/6", 0, 600, 0, 400, false},
+{"text/regular/7", 0, 600, 0, 400, false},
+{"text/regular/8", 0, 600, 0, 400, false},
+{"text/regular/9", 0, 600, 0, 400, false},
+{"text/regular/in_x_moves_1", 0, 600, 0, 400, false},
+{"text/regular/in_x_moves_2", 0, 600, 0, 400, false},
+{"text/regular/youded", 0, 600, 0, 400, false},
+	// big
+{"text/big/youwin", 0, 600, 0, 400, false},
+{"text/big/gameover", 0, 600, 0, 400, false},
 };

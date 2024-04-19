@@ -6,12 +6,13 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:26:17 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/09 13:44:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 12:35:00 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 
+static bool	g_enter = false;
 static int	g_input_i = 0;
 static bool	g_to_unpress[4] = {false, false, false, false};
 static bool	g_inputbuf[4] = {false, false, false, false};
@@ -55,6 +56,8 @@ int	key_press_hook(int keycode)
 {
 	if (keycode == XK_Escape)
 		success();
+	if (keycode == XK_Return)
+		g_enter = true;
 	setkey(keycode, true);
 	return (0);
 }
@@ -69,6 +72,8 @@ void	input_loop(void)
 {
 	t_direction	direction;
 
+	g_env.enter = g_enter;
+	g_enter = false;
 	g_input_i++;
 	direction = -1;
 	while (++direction < 4)

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/17 18:21:17 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:17:46 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ static void	gameover_byfirskattack_loop(void)
 
 static void	gameover_byfirskattack_draw(void)
 {
-	t_sprite *const	allsprites[][4] = {
-	{&g_gameover_env.spr_snas, &g_gameover_env.spr_attack, NULL, NULL},
-	{&g_gameover_env.spr_snas, &g_gameover_env.spr_explosion1, NULL, NULL},
-	{&g_gameover_env.spr_explosion2, NULL, &g_gameover_env.spr_gameover,
-		&g_gameover_env.spr_youded},
-	{NULL, NULL, &g_gameover_env.spr_gameover, &g_gameover_env.spr_youded}};
-	t_sprite *const	*sprites = allsprites[g_gameover_env.state];
+	void *const	allsprites[][5] = {
+	{&g_gameover_env.spr_snas, &g_gameover_env.spr_attack, NULL, NULL, NULL},
+	{&g_gameover_env.spr_snas, &g_gameover_env.spr_explosion1, NULL, NULL,
+		NULL},
+	{&g_gameover_env.spr_explosion2, NULL, (void *)1, (void *)1, NULL},
+	{NULL, NULL, (void *)1, (void *)1, &ask_retry},
+	};
+	void *const	*sprites = allsprites[g_gameover_env.state];
+	t_point		p_gameover;
+	t_point		p_youded;
 
+	p_gameover = point_init(145, 120);
+	p_youded = point_init(145, 210);
 	if (sprites[0])
 		if (!sprite_draw(g_gameover_env.snaspos, sprites[0]))
 			g_gameover_env.state++;
@@ -36,11 +41,11 @@ static void	gameover_byfirskattack_draw(void)
 		if (!sprite_draw(g_gameover_env.snaspos, sprites[1]))
 			g_gameover_env.state++;
 	if (sprites[2])
-		if (!sprite_draw(point_init(0, 0), sprites[2]))
-			g_gameover_env.state++;
+		display_text(&p_gameover, TEXT_BIG_GAMEOVER);
 	if (sprites[3])
-		if (!sprite_draw(point_init(0, 0), sprites[3]))
-			g_gameover_env.state++;
+		display_text(&p_youded, TEXT_REGULAR_YOUDED);
+	if (sprites[4])
+		((void (*)(bool))sprites[4])(true);
 }
 
 void	gameover_byfirskattack(t_character *character)
@@ -60,8 +65,6 @@ void	gameover_byfirskattack(t_character *character)
 	g_gameover_env.spr_snas = sprite_init(snas_sprite);
 	g_gameover_env.spr_snas.index = character->direction;
 	g_gameover_env.spr_attack = sprite_init(SPR_KNIFEATTACK);
-	g_gameover_env.spr_gameover = sprite_init(SPR_GAMEOVER);
-	g_gameover_env.spr_youded = sprite_init(SPR_YOUDED);
 	g_gameover_env.spr_explosion1 = sprite_init(SPR_EXPLOSION_1);
 	g_gameover_env.spr_explosion2 = sprite_init(SPR_EXPLOSION_2);
 	g_gameover_env.state = 0;

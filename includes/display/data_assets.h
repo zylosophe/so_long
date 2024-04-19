@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 20:07:12 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:00:28 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 107
+# define NB_ASSETS 121
 
 typedef struct s_assetmeta
 {
@@ -140,8 +140,22 @@ typedef enum e_assetsmap_id
 	TEXT_LITTLE_7,
 	TEXT_LITTLE_8,
 	TEXT_LITTLE_9,
-	TEXT_GAMEOVER,
-	TEXT_YOUDED,
+	TEXT_LITTLE_PRESSENTERTORETRY,
+	TEXT_REGULAR_0,
+	TEXT_REGULAR_1,
+	TEXT_REGULAR_2,
+	TEXT_REGULAR_3,
+	TEXT_REGULAR_4,
+	TEXT_REGULAR_5,
+	TEXT_REGULAR_6,
+	TEXT_REGULAR_7,
+	TEXT_REGULAR_8,
+	TEXT_REGULAR_9,
+	TEXT_REGULAR_IN_X_MOVES_1,
+	TEXT_REGULAR_IN_X_MOVES_2,
+	TEXT_REGULAR_YOUDED,
+	TEXT_BIG_YOUWIN,
+	TEXT_BIG_GAMEOVER,
 }	t_assetsmap_id;
 
 # define OBJECT_SNAS OBJECT_SNAS_DOWN

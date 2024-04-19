@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:02:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 18:26:32 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 12:59:49 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,4 @@ const t_spritemeta	g_spritesmap[NB_SPRITES] = {
 {ANIM_KNIFEATTACK_1, 50, 50, ANIMATION_ONCE, 7, 2},
 {ANIM_EXPLOSION_PART1_1, 23, 50, ANIMATION_ONCE, 8, 1},
 {ANIM_EXPLOSION_PART2_1, 23, 50, ANIMATION_ONCE, 9, 1},
-{TEXT_GAMEOVER, 0, 0, ANIMATION, 1, 1},
-{TEXT_YOUDED, 0, 0, ANIMATION, 1, 1},
 };

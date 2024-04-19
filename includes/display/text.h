@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:54:06 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 20:02:12 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:53:25 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "includes.h"
 
 void	display_text(t_point *p, t_assetsmap_id asset);
-void	display_uint(t_point *p, unsigned int n);
+void	display_uint(t_point *p, unsigned int n, bool little);
 
 #endif
