@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:19:19 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 16:03:05 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:32:16 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_direction	pathfinding(t_point start, t_point finish, bool for_firsk)
 	map = init_map(env.mc, for_firsk);
 	tocheck = inittochecklist(env.mc, map.dim, start);
 	case_checking = start;
+	((t_path_map_case *)*map_at(&map, start))->to_check = true;
 	while (case_checking.x != -1 || case_checking.y != -1)
 	{
 		r = pathfinding_checkdirections(&tocheck, case_checking, &map, env);
