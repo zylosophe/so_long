@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 23:08:32 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 12:47:22 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define TEXT_SPACE 9
 
 # define LEVEL_COUNT 10
+
 extern const t_const_string	g_levels[LEVEL_COUNT];
 
 typedef struct s_env
@@ -50,6 +51,6 @@ typedef struct s_env
 	int						moves;
 }					t_env;
 
-extern t_env	g_env;
+extern t_env				g_env;
 
 #endif
