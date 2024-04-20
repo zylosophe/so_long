@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 14:54:49 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 16:21:05 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,16 @@ static t_point	snas_loop(t_object *obj, t_point pos)
 		data->tp_spr = sprite_init(SPR_EXIT_TP);
 	}
 	if (data->state == SNAS_STATE_WAITING_TO_WIN)
-	{
-		data->wait_before_win--;
-		if (!data->wait_before_win)
-		{
-			win();
-			return (point_init(0, 0));
-		}
-	}
+		if (!--data->wait_before_win)
+			return (win(), point_init(0, 0));
 	if (data->state > SNAS_STATE_GOING_TO_EXIT)
 		return (point_init(0, 0));
 	r = character_loop(&data->character, pos, snas_brain);
 	if (r.x || r.y)
+	{
 		g_env.moves++;
+		g_env.snas_moved = true;
+	}
 	return (r);
 }
 

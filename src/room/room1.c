@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 15:50:09 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 16:15:11 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	room_init(t_const_string path)
 	room_fromfile(&g_env.room, path);
 	g_env.ketchup = 0;
 	g_env.max_ketchup = room_count(ketchup_init);
+	g_env.snas_moved = false;
 	if (room_count(exit_init) != 1)
 		error_str(path, "there must be exactly 1 exit.");
 	if (room_count(ketchup_init) < 1)

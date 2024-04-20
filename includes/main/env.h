@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:26:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 15:46:49 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 16:14:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ typedef struct s_env
 	int						level_count;
 	int						level_current;
 	int						level_to_load;
-	// room
+	// play
 	t_room					room;
 	t_camera				camera;
 	int						ketchup;
 	int						max_ketchup;
+	bool					snas_moved;
 	// moves
 	int						moves;
 }							t_env;
