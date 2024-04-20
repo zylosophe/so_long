@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 13:14:38 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 15:50:09 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static bool	room_fromfile2(
 				int fd, t_const_string path, int *i, t_room *room)
 {
 	t_const_string		line;
-	t_roomcase			*roomcase;
+	const t_roomcase	*roomcase;
 	const t_memclass	mc = mem_subclass(error_err, g_env.mc);
 
 	line = read_line(err_remember, mc, fd);

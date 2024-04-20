@@ -6,32 +6,29 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:26:17 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 12:35:00 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 15:40:29 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
-
-static bool	g_enter = false;
-static int	g_input_i = 0;
-static bool	g_to_unpress[4] = {false, false, false, false};
-static bool	g_inputbuf[4] = {false, false, false, false};
+#include "input_utils.h"
 
 static void	set_direction(t_direction direction, bool value)
 {
-	static int	last_press[4] = {0, 0, 0, 0};
+	t_input_hidden *const	hidden = get_input_hidden();
+	static int				last_press[4] = {0, 0, 0, 0};
 
 	if (value)
 	{
-		last_press[direction] = g_input_i;
-		g_to_unpress[direction] = false;
+		last_press[direction] = hidden->input_i;
+		hidden->to_unpress[direction] = false;
 	}
-	if (!value && last_press[direction] == g_input_i)
+	if (!value && last_press[direction] == hidden->input_i)
 	{
-		g_to_unpress[direction] = true;
+		hidden->to_unpress[direction] = true;
 		return ;
 	}
-	g_inputbuf[direction] = value;
+	hidden->inputbuf[direction] = value;
 }
 
 static void	setkey(int keycode, bool value)
@@ -54,10 +51,12 @@ static void	setkey(int keycode, bool value)
 
 int	key_press_hook(int keycode)
 {
+	t_input_hidden *const	hidden = get_input_hidden();
+
 	if (keycode == XK_Escape)
 		success();
 	if (keycode == XK_Return)
-		g_enter = true;
+		hidden->enter = true;
 	setkey(keycode, true);
 	return (0);
 }
@@ -70,16 +69,17 @@ int	key_release_hook(int keycode)
 
 void	input_loop(void)
 {
-	t_direction	direction;
+	t_input_hidden *const	hidden = get_input_hidden();
+	t_direction				direction;
 
-	g_env.enter = g_enter;
-	g_enter = false;
-	g_input_i++;
+	g_env.enter = hidden->enter;
+	hidden->enter = false;
+	hidden->input_i++;
 	direction = -1;
 	while (++direction < 4)
 	{
-		g_env.input[direction] = g_inputbuf[direction];
-		if (g_to_unpress[direction])
+		g_env.input[direction] = hidden->inputbuf[direction];
+		if (hidden->to_unpress[direction])
 			set_direction(direction, false);
 	}
 }

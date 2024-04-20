@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:49:39 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 20:35:03 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:31:03 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	win(void)
 	g_env.level_to_load = g_env.level_current + 1;
 	if (g_env.level_to_load >= g_env.level_count)
 	{
-		g_loopfunctions.loop = end_loop;
-		g_loopfunctions.draw = end_draw;
+		g_env.loopfunctions.loop = end_loop;
+		g_env.loopfunctions.draw = end_draw;
 	}
 }

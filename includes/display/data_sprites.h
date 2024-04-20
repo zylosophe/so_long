@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 15:56:31 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 12:59:36 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:24:27 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct s_spritemeta
 	int				nb_frames;
 	int				delay_frame;
 }					t_spritemeta;
-
-extern const t_spritemeta	g_spritesmap[NB_SPRITES];
 
 typedef enum e_spritesmap_id
 {

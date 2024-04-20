@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 21:00:20 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:32:27 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # include <errno.h>
 # include "libtf.h"
 # include "mlx.h"
+
+# include "main/main.h"
 
 # include "utils/direction.h"
 # include "utils/point.h"
@@ -53,6 +55,5 @@
 # include "main/env.h"
 # include "main/input.h"
 # include "main/timedloop.h"
-# include "main/main.h"
 
 #endif

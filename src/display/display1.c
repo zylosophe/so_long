@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:05:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 20:11:30 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 15:00:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	display_init(void)
 {
-	int	i;
+	t_image *const	screenbuf = get_screenbuf();
+	int				i;
 
 	i = 0;
 	while (i < NB_ASSETS)
@@ -23,45 +24,48 @@ void	display_init(void)
 		load_xpm_file_with_alpha(i);
 		i++;
 	}
-	g_screenbuf.img = mlx_new_image(g_env.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	if (!g_screenbuf.img)
+	screenbuf->img = mlx_new_image(g_env.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	if (!screenbuf->img)
 		error_err("on mlx_new_image()");
-	g_screenbuf.width = WINDOW_WIDTH;
-	g_screenbuf.height = WINDOW_HEIGHT;
-	g_screenbuf.data = get_data_addr(g_screenbuf.img);
+	screenbuf->width = WINDOW_WIDTH;
+	screenbuf->height = WINDOW_HEIGHT;
+	screenbuf->data = get_data_addr(screenbuf->img);
 	display_erase();
 }
 
 void	display_erase(void)
 {
+	t_pixel *const		screenbuf_data = get_screenbuf()->data;
 	const unsigned int	black = 0x00000000;
 	int					i;
 
 	i = -1;
 	while (++i < WINDOW_WIDTH * WINDOW_HEIGHT)
-		g_screenbuf.data[i] = black;
+		screenbuf_data[i] = black;
 }
 
 void	display_flush(void)
 {
-	mlx_put_image_to_window(g_env.mlx, g_env.win, g_screenbuf.img, 0, 0);
+	mlx_put_image_to_window(g_env.mlx, g_env.win, get_screenbuf()->img, 0, 0);
 }
 
 void	display_destroyall(void)
 {
-	int		i;
-	void	*img;
+	t_image *const	screenbuf = get_screenbuf();
+	const t_image	*allassets = *get_allassets();
+	int				i;
+	void			*img;
 
 	i = 0;
 	while (i < NB_ASSETS)
 	{
-		img = g_allassets[i].img;
+		img = allassets[i].img;
 		if (img)
 			mlx_destroy_image(g_env.mlx, img);
 		i++;
 	}
-	if (g_screenbuf.img)
-		mlx_destroy_image(g_env.mlx, g_screenbuf.img);
+	if (screenbuf->img)
+		mlx_destroy_image(g_env.mlx, screenbuf->img);
 	if (g_env.win)
 		mlx_destroy_window(g_env.mlx, g_env.win);
 	if (g_env.mlx)

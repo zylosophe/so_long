@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 13:39:54 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 13:29:14 by mcolonna         ###   ########.fr       */
+/*   Created: 2024/04/20 15:05:54 by mcolonna          #+#    #+#             */
+/*   Updated: 2024/04/20 15:16:29 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "input_utils.h"
 
-typedef struct s_loopfunctions
+t_input_hidden	*get_input_hidden(void)
 {
-	void	(*loop)(void);
-	void	(*draw)(void);
-}			t_loopfunctions;
+	static t_input_hidden	v = {
+		enter: false,
+		input_i: 0,
+		to_unpress: {false, false, false, false},
+		inputbuf: {false, false, false, false},
+	};
 
-int	main(int argc, t_const_string *argv);
-
-#endif
+	return (&v);
+}

@@ -6,13 +6,11 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:28:34 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 20:30:19 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:30:47 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
-
-t_loopfunctions	g_loopfunctions;
 
 int	expose_hook(void)
 {
@@ -28,16 +26,16 @@ int	close_hook(void)
 
 static void	loop(void)
 {
-	if (g_loopfunctions.loop == room_loop
+	if (g_env.loopfunctions.loop == room_loop
 		&& g_env.level_to_load != g_env.level_current)
 	{
 		g_env.level_current = g_env.level_to_load;
 		init_level();
 	}
 	input_loop();
-	g_loopfunctions.loop();
+	g_env.loopfunctions.loop();
 	display_erase();
-	g_loopfunctions.draw();
+	g_env.loopfunctions.draw();
 	display_flush();
 }
 
@@ -64,7 +62,7 @@ int	main(int argc, t_const_string *argv)
 	if (argc == 2)
 		init_levels(1, &argv[1]);
 	else
-		init_levels(LEVEL_COUNT, g_levels);
+		init_levels(LEVEL_COUNT, g_consts.levels);
 	mlx_expose_hook(g_env.win, expose_hook, NULL);
 	mlx_hook(g_env.win, DestroyNotify, StructureNotifyMask, close_hook, NULL);
 	mlx_loop_hook(g_env.mlx, loop_hook, NULL);

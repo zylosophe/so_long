@@ -6,23 +6,12 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:21:33 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:51:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 15:49:01 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 #include "room_utils.h"
-
-static t_roomcase	g_roomcases[] = {
-{c: '0', object: NULL, surface: CASE_FLOOR_1},
-{c: '1', object: wall_init, surface: CASE_FLOOR_1},
-{c: 'P', object: snas_init, surface: CASE_FLOOR_1},
-{c: 'C', object: ketchup_init, surface: CASE_FLOOR_1},
-{c: 'E', object: exit_init, surface: CASE_FLOOR_1},
-{c: 'F', object: firsk_init, surface: CASE_FLOOR_1},
-{c: 'B', object: NULL, surface: CASE_BRIDGE},
-{c: '\0'}
-};
 
 static int	getlinelen(t_const_string line)
 {
@@ -62,15 +51,15 @@ void	room_getsize(t_memclass mc, t_room *r, t_const_string path)
 	}
 }
 
-t_roomcase	*getroomcase(t_const_string path, char c)
+const t_roomcase	*getroomcase(t_const_string path, char c)
 {
 	int	i;
 
 	i = -1;
-	while (g_roomcases[++i].c)
+	while (g_consts.roomcases[++i].c)
 	{
-		if (g_roomcases[i].c == c)
-			return (&g_roomcases[i]);
+		if (g_consts.roomcases[i].c == c)
+			return (&g_consts.roomcases[i]);
 	}
 	error_str(path, "unknown char");
 	return (NULL);

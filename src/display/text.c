@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:57:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 11:55:23 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:59:17 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	display_text(t_point *p, t_assetsmap_id asset)
 {
 	display_draw(*p, asset);
-	p->x += g_allassets[asset].width;
+	p->x += (*get_allassets())[asset].width;
 }
 
 void	display_uint(t_point *p, unsigned int n, bool little)

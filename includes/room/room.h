@@ -6,12 +6,19 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 13:32:49 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 15:45:36 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROOM_H
 # define ROOM_H
+
+typedef struct s_roomcase
+{
+	char			c;
+	t_object_init	object;
+	t_spritesmap_id	surface;
+}					t_roomcase;
 
 typedef struct s_room
 {

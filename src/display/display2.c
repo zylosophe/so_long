@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:05:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 21:03:27 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:03:28 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static inline t_imglimits	get_limits(t_point p, t_image img)
 
 static inline void	display_draw_alpha(t_point p, t_image img)
 {
+	const t_image		*screenbuf = get_screenbuf();
 	const t_imglimits	limits = get_limits(p, img);
 	int					img_x;
 	int					img_y;
@@ -57,7 +58,7 @@ static inline void	display_draw_alpha(t_point p, t_image img)
 		while (img_x < limits.xmax)
 		{
 			add_color(
-				&g_screenbuf.data[(p.y + img_y) * WINDOW_WIDTH + (p.x + img_x)],
+				&screenbuf->data[(p.y + img_y) * WINDOW_WIDTH + (p.x + img_x)],
 				img.data[img_y * img.width + img_x]);
 			img_x++;
 		}
@@ -67,6 +68,7 @@ static inline void	display_draw_alpha(t_point p, t_image img)
 
 static inline void	display_draw_opaque(t_point p, t_image img)
 {
+	const t_image		*screenbuf = get_screenbuf();
 	const t_imglimits	limits = get_limits(p, img);
 	int					img_x;
 	int					img_y;
@@ -77,7 +79,7 @@ static inline void	display_draw_opaque(t_point p, t_image img)
 		img_x = limits.xmin;
 		while (img_x < limits.xmax)
 		{
-			g_screenbuf.data[(p.y + img_y) * WINDOW_WIDTH + (p.x + img_x)]
+			screenbuf->data[(p.y + img_y) * WINDOW_WIDTH + (p.x + img_x)]
 				= img.data[img_y * img.width + img_x];
 			img_x++;
 		}
@@ -87,7 +89,7 @@ static inline void	display_draw_opaque(t_point p, t_image img)
 
 void	display_draw(t_point p, t_assetsmap_id asset)
 {
-	const t_image	img = g_allassets[asset];
+	const t_image	img = (*get_allassets())[asset];
 
 	if (img.asset.opaque)
 		display_draw_opaque(p, img);

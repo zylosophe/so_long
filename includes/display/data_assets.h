@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 13:00:28 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:20:36 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ typedef struct s_assetmeta
 	bool			opaque;
 }	t_assetmeta;
 
-extern const t_assetmeta	g_assetsmap[NB_ASSETS];
-
 /**
- * Index for each asset. Must be in the same order than g_assetsmap.
+ * Index for each asset. Must be in the same order than g_consts.assetsmap.
  * The frames of an animation must be together and sorted.
  * The images of an object with directions must be in this order:
  *   down, up, left, right

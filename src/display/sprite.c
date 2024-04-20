@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 22:28:52 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/11 17:24:03 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:26:08 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_sprite	sprite_init(t_spritesmap_id id)
 {
 	t_sprite	r;
 
-	r.meta = (t_spritemeta *)(g_spritesmap + id);
+	r.meta = (t_spritemeta *)(g_consts.spritesmap + id);
 	r.index = 0;
 	return (r);
 }

@@ -6,14 +6,26 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 13:03:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 17:10:46 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/20 14:46:39 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes.h"
 
-t_image	g_allassets[NB_ASSETS];
-t_image	g_screenbuf;
+t_image	*const	*get_allassets(void)
+{
+	static t_image			v[NB_ASSETS];
+	static t_image *const	vv = v;
+
+	return (&vv);
+}
+
+t_image	*get_screenbuf(void)
+{
+	static t_image	v;
+
+	return (&v);
+}
 
 t_pixel	*get_data_addr(void *img)
 {
@@ -42,27 +54,28 @@ void	apply_mask_to_image(void *img, void *mask, int nb_px)
 
 void	load_xpm_file_with_alpha(int i)
 {
-	t_string			tmp;
-	t_string			src;
-	t_string			src_mask;
-	void				*mask;
+	t_image *const	allassets = *get_allassets();
+	t_string		tmp;
+	t_string		src;
+	t_string		src_mask;
+	void			*mask;
 
-	tmp = str_join(error_err, g_env.mc, "assets/", g_assetsmap[i].src);
+	tmp = str_join(error_err, g_env.mc, "assets/", g_consts.assetsmap[i].src);
 	src = str_join(error_err, g_env.mc, tmp, ".xpm");
 	src_mask = str_join(error_err, g_env.mc, tmp, ".alpha.xpm");
-	g_allassets[i].img = mlx_xpm_file_to_image(g_env.mlx, src,
-			&(g_allassets[i].width), &g_allassets[i].height);
-	if (!g_allassets[i].img)
-		error_str(g_assetsmap[i].src, "image loading failed");
+	allassets[i].img = mlx_xpm_file_to_image(g_env.mlx, src,
+			&(allassets[i].width), &allassets[i].height);
+	if (!allassets[i].img)
+		error_str(g_consts.assetsmap[i].src, "image loading failed");
 	mask = mlx_xpm_file_to_image(g_env.mlx, src_mask,
-			&(g_allassets[i].width), &g_allassets[i].height);
+			&(allassets[i].width), &allassets[i].height);
 	if (!mask)
-		error_str(g_assetsmap[i].src, "image loading failed");
-	apply_mask_to_image(g_allassets[i].img, mask,
-		g_allassets[i].width * g_allassets[i].height);
+		error_str(g_consts.assetsmap[i].src, "image loading failed");
+	apply_mask_to_image(allassets[i].img, mask,
+		allassets[i].width * allassets[i].height);
 	mlx_destroy_image(g_env.mlx, mask);
-	g_allassets[i].data = get_data_addr(g_allassets[i].img);
-	g_allassets[i].asset = g_assetsmap[i];
+	allassets[i].data = get_data_addr(allassets[i].img);
+	allassets[i].asset = g_consts.assetsmap[i];
 	mem_free(tmp);
 	mem_free(src);
 	mem_free(src_mask);
