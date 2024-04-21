@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:32:36 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 20:08:11 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 20:18:51 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ const t_consts	g_consts = {
 {OBJECT_FIRSK_WALK_RIGHT_1, 50, 50, ANIMATION, 2, 3},
 {OBJECT_FIRSK_WALK_LEFT_1, 50, 50, ANIMATION, 2, 3},
 {OBJECT_ULTIMATEKETCHUP, 300, 300, ANIMATION, 1, 1},
-{ANIM_KNIFEATTACK_1, 50, 50, ANIMATION_ONCE, 7, 2},
+{ANIM_KNIFEATTACK_1, 50, 55, ANIMATION_ONCE, 7, 2},
 {ANIM_EXPLOSION_PART1_1, 23, 50, ANIMATION_ONCE, 8, 1},
 {ANIM_EXPLOSION_PART2_1, 23, 50, ANIMATION_ONCE, 9, 1},
 },
