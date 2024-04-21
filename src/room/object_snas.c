@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 16:21:05 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 16:30:38 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static bool	snas_walk_through(t_object *obj, t_character *character,
 static t_direction	snas_brain(t_point pos)
 {
 	(void)pos;
+	if (g_env.room.ending)
+		return (NO_DIRECTION);
 	if (g_env.input[UP] && !g_env.input[DOWN])
 		return (UP);
 	if (g_env.input[DOWN] && !g_env.input[UP])

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:47:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 16:06:33 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:40:16 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_exit_data
 {
 	t_sprite	spr;
 	bool		active;
+	bool		finalexit;
 }				t_exit_data;
 
 t_object		exit_init(t_memclass mc);
@@ -72,5 +73,14 @@ typedef struct s_activablewall_data
 }				t_activablewall_data;
 
 t_object		activablewall_init(t_memclass mc);
+
+// ULTIMATE KETCHUP
+typedef struct s_ultimateketchup_data
+{
+	t_sprite	spr;
+	int			time;
+}				t_ultimateketchup_data;
+
+t_object		ultimateketchup_init(t_memclass mc);
 
 #endif

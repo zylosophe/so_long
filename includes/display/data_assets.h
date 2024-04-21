@@ -6,14 +6,14 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:43:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 13:20:36 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:53:15 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_ASSETS_H
 # define DATA_ASSETS_H
 
-# define NB_ASSETS 121
+# define NB_ASSETS 124
 
 typedef struct s_assetmeta
 {
@@ -104,6 +104,7 @@ typedef enum e_assetsmap_id
 	OBJECT_FIRSK_WALK_UP_2,
 	OBJECT_FIRSK_WALK_UP_3,
 	OBJECT_FIRSK_WALK_UP_4,
+	OBJECT_ULTIMATEKETCHUP,
 	ANIM_KNIFEATTACK_1,
 	ANIM_KNIFEATTACK_2,
 	ANIM_KNIFEATTACK_3,
@@ -152,6 +153,8 @@ typedef enum e_assetsmap_id
 	TEXT_REGULAR_IN_X_MOVES_1,
 	TEXT_REGULAR_IN_X_MOVES_2,
 	TEXT_REGULAR_YOUDED,
+	TEXT_REGULAR_YOUFOUNDTHEULTIMATEKETCHUP_1,
+	TEXT_REGULAR_YOUFOUNDTHEULTIMATEKETCHUP_2,
 	TEXT_BIG_YOUWIN,
 	TEXT_BIG_GAMEOVER,
 }	t_assetsmap_id;

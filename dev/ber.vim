@@ -17,7 +17,7 @@ highlight berC cterm=bold ctermfg=yellow
 syntax match berC /C/
 
 highlight berE cterm=bold ctermfg=green
-syntax match berE /E/
+syntax match berE /[EU]/
 
 highlight berF cterm=bold ctermfg=red
 syntax match berF /F/

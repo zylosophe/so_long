@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:21:33 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 15:49:01 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:47:00 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,6 @@ const t_roomcase	*getroomcase(t_const_string path, char c)
 	return (NULL);
 }
 
-int	room_count(t_object_init objtype)
-{
-	int	i;
-	int	r;
-
-	r = 0;
-	i = -1;
-	while (++i < g_env.room.width * g_env.room.height)
-		if (g_env.room.objects[i]
-			&& g_env.room.objects[i]->type.init == objtype)
-			r++;
-	return (r);
-}
-
 void	room_checkaccessibilities(t_const_string path)
 {
 	t_point		p;
@@ -100,4 +86,28 @@ void	room_checkaccessibilities(t_const_string path)
 	}
 	if (pathfinding(snas_pos, room_find(exit_init), false) == NO_DIRECTION)
 		error_str(path, "the exit must be accessible.");
+}
+
+void	room_endingdraw(void)
+{
+	const int	time = g_env.room.time_after_ending;
+	t_point		p;
+
+	g_env.room.time_after_ending++;
+	if (time < 30)
+		return ;
+	p = point_init(200, 75);
+	display_text(&p, TEXT_REGULAR_YOUFOUNDTHEULTIMATEKETCHUP_1);
+	if (time < 60)
+		return ;
+	p = point_init(25, 125);
+	display_text(&p, TEXT_REGULAR_YOUFOUNDTHEULTIMATEKETCHUP_2);
+	if (time < 100)
+		return ;
+	p = point_init(235, 310);
+	display_text(&p, TEXT_REGULAR_IN_X_MOVES_1);
+	p.x += TEXT_SPACE;
+	display_uint(&p, g_env.moves, false);
+	p.x += TEXT_SPACE;
+	display_text(&p, TEXT_REGULAR_IN_X_MOVES_2);
 }

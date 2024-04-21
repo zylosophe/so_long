@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:32:36 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 16:04:08 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:53:00 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ const t_consts	g_consts = {
 {c: 'F', object: firsk_init, surface: CASE_FLOOR_1},
 {c: 'B', object: NULL, surface: CASE_BRIDGE},
 {c: 'A', object: activablewall_init, surface: CASE_FLOOR_1},
+{c: 'U', object: ultimateketchup_init, surface: CASE_FLOOR_1},
 {c: '\0'}
 },
 	levels: {
@@ -117,6 +118,8 @@ const t_consts	g_consts = {
 {"object/firsk/walk_up_2", 40, 100, 30, 100, false},
 {"object/firsk/walk_up_3", 40, 100, 30, 100, false},
 {"object/firsk/walk_up_4", 40, 100, 30, 100, false},
+	// ultimate ketchup
+{"object/ultimateketchup/1", 0, 900, 0, 900, false},
 	// ANIM
 	// knife attack
 {"anim/knifeattack_1", 50, 100, 40, 110, false},
@@ -171,6 +174,8 @@ const t_consts	g_consts = {
 {"text/regular/in_x_moves_1", 0, 600, 0, 400, false},
 {"text/regular/in_x_moves_2", 0, 600, 0, 400, false},
 {"text/regular/youded", 0, 600, 0, 400, false},
+{"text/regular/youfoundtheultimateketchup_1", 0, 600, 0, 400, false},
+{"text/regular/youfoundtheultimateketchup_2", 0, 600, 0, 400, false},
 	// big
 {"text/big/youwin", 0, 600, 0, 400, false},
 {"text/big/gameover", 0, 600, 0, 400, false},
@@ -198,6 +203,7 @@ const t_consts	g_consts = {
 {OBJECT_FIRSK_WALK_UP_1, 50, 50, ANIMATION, 4, 3},
 {OBJECT_FIRSK_WALK_RIGHT_1, 50, 50, ANIMATION, 2, 3},
 {OBJECT_FIRSK_WALK_LEFT_1, 50, 50, ANIMATION, 2, 3},
+{OBJECT_ULTIMATEKETCHUP, 300, 300, ANIMATION, 1, 1},
 {ANIM_KNIFEATTACK_1, 50, 50, ANIMATION_ONCE, 7, 2},
 {ANIM_EXPLOSION_PART1_1, 23, 50, ANIMATION_ONCE, 8, 1},
 {ANIM_EXPLOSION_PART2_1, 23, 50, ANIMATION_ONCE, 9, 1},

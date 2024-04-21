@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 23:00:45 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 15:45:36 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:27:27 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_room
 	t_object	**objects;
 	t_visual	**visuals;
 	t_memclass	mc;
+	bool		ending;
+	int			time_after_ending;
 }				t_room;
 
 void		room_init(t_const_string path);
@@ -45,5 +47,7 @@ bool		room_canwalk(
 				t_room room, t_character *character, t_point pos);
 
 t_point		room_find(t_object_init objtype);
+
+int			room_count(t_object_init objtype);
 
 #endif

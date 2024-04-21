@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:34:56 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:09:36 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:37:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ static void	limit(int *n, int min, int max)
 		*n = max;
 }
 
+static void	camera_sync_ending(void)
+{
+	g_env.camera.pos.y -= 5;
+	if (g_env.camera.pos.y < 50)
+		g_env.camera.pos.y = 50;
+}
+
 void	camera_sync(void)
 {
 	const t_point	obj_pos = find_snas_position();
@@ -56,6 +63,8 @@ void	camera_sync(void)
 			point_init(g_env.room.width, g_env.room.height), 50);
 	t_point *const	camera_pos = &g_env.camera.pos;
 
+	if (g_env.room.ending)
+		return (camera_sync_ending());
 	if (room_dims.x <= WINDOW_WIDTH)
 		camera_pos->x = -(WINDOW_WIDTH - room_dims.x) / 2;
 	else

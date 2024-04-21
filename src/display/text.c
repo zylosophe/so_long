@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:57:28 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 13:59:17 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:41:35 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ void	display_uint(t_point *p, unsigned int n, bool little)
 	while (*str)
 	{
 		display_text(p, zero + *str - '0');
+		if (little)
+			p->x -= 3;
+		else
+			p->x -= 5;
 		str++;
 	}
 	mem_freeall(mc);

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:11:29 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 16:15:11 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:29:19 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ static t_room	room_fromfile(t_room *r, t_const_string path)
 void	room_init(t_const_string path)
 {
 	room_fromfile(&g_env.room, path);
+	g_env.room.ending = false;
+	g_env.room.time_after_ending = 0;
 	g_env.ketchup = 0;
 	g_env.max_ketchup = room_count(ketchup_init);
 	g_env.snas_moved = false;
@@ -118,9 +120,14 @@ void	room_init(t_const_string path)
 
 void	room_draw(void)
 {
-	t_point			p;
+	t_point		p;
 
 	room_drawsurfaceandobjects();
-	p = point_init(4, 4);
-	display_uint(&p, g_env.moves, true);
+	if (g_env.room.ending)
+		room_endingdraw();
+	else
+	{
+		p = point_init(4, 4);
+		display_uint(&p, g_env.moves, true);
+	}
 }

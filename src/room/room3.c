@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:18:38 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/15 18:10:15 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 16:59:11 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,18 @@ t_point	room_find(t_object_init objtype)
 		}
 	}
 	return (point_init(-1, -1));
+}
+
+int	room_count(t_object_init objtype)
+{
+	int	i;
+	int	r;
+
+	r = 0;
+	i = -1;
+	while (++i < g_env.room.width * g_env.room.height)
+		if (g_env.room.objects[i]
+			&& g_env.room.objects[i]->type.init == objtype)
+			r++;
+	return (r);
 }
