@@ -25,6 +25,9 @@ syntax match berF /F/
 highlight berB cterm=bold ctermfg=grey
 syntax match berB /B/
 
+highlight berA ctermfg=white
+syntax match berA /A/
+
 endif
 endfunction
 autocmd BufReadPost * call BerSyntax()

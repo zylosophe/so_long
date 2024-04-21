@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:47:01 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 18:17:16 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 16:06:33 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_exit_data
 	bool		active;
 }				t_exit_data;
 
+t_object		exit_init(t_memclass mc);
+
 // FIRSK
 typedef struct s_firsk_data
 {
@@ -63,6 +65,12 @@ typedef struct s_firsk_data
 
 t_object		firsk_init(t_memclass mc);
 
-t_object		exit_init(t_memclass mc);
+// ACTIVABLE WALL
+typedef struct s_activablewall_data
+{
+	t_sprite	spr;
+}				t_activablewall_data;
+
+t_object		activablewall_init(t_memclass mc);
 
 #endif

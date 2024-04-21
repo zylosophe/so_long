@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:32:36 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 15:47:12 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/21 16:04:08 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ const t_consts	g_consts = {
 {c: 'E', object: exit_init, surface: CASE_FLOOR_1},
 {c: 'F', object: firsk_init, surface: CASE_FLOOR_1},
 {c: 'B', object: NULL, surface: CASE_BRIDGE},
+{c: 'A', object: activablewall_init, surface: CASE_FLOOR_1},
 {c: '\0'}
 },
 	levels: {

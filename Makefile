@@ -12,7 +12,7 @@ CODE =	$(addprefix main/, \
 			visual room1 room2 room3 room_utils1 room_utils2 camera \
 			pathfinding pathfinding_utils \
 			object_character object_snas object_wall object_ketchup object_exit \
-			object_firsk \
+			object_firsk object_activablewall \
 		) \
 		$(addprefix utils/, \
 			point1 point2 map \
