@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 15:01:16 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 17:06:07 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:44:51 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static bool	exit_walk_through(
 t_object	exit_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {solid_firsk: true, solid_snas: true,
-		init: exit_init, loop: exit_loop, draw: exit_draw,
-		walk_through: exit_walk_through};
+		= {.solid_firsk = true, .solid_snas = true,
+		.init = exit_init, .loop = exit_loop, .draw = exit_draw,
+		.walk_through = exit_walk_through};
 	t_object							r;
 	t_exit_data							*data;
 

@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:32:36 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 20:18:51 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:11:02 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 t_env			g_env;
 
 const t_consts	g_consts = {
-	roomcases: {
-{c: '0', object: NULL, surface: CASE_FLOOR_1},
-{c: '1', object: wall_init, surface: CASE_FLOOR_1},
-{c: 'P', object: snas_init, surface: CASE_FLOOR_1},
-{c: 'C', object: ketchup_init, surface: CASE_FLOOR_1},
-{c: 'E', object: exit_init, surface: CASE_FLOOR_1},
-{c: 'F', object: firsk_init, surface: CASE_FLOOR_1},
-{c: 'B', object: NULL, surface: CASE_BRIDGE},
-{c: 'A', object: activablewall_init, surface: CASE_BRIDGE},
-{c: 'U', object: ultimateketchup_init, surface: CASE_FLOOR_1},
-{c: '\0'}
+	.roomcases = {
+{.c = '0', .object = NULL, .surface = CASE_FLOOR_1},
+{.c = '1', .object = wall_init, .surface = CASE_FLOOR_1},
+{.c = 'P', .object = snas_init, .surface = CASE_FLOOR_1},
+{.c = 'C', .object = ketchup_init, .surface = CASE_FLOOR_1},
+{.c = 'E', .object = exit_init, .surface = CASE_FLOOR_1},
+{.c = 'F', .object = firsk_init, .surface = CASE_FLOOR_1},
+{.c = 'B', .object = NULL, .surface = CASE_BRIDGE},
+{.c = 'A', .object = activablewall_init, .surface = CASE_BRIDGE},
+{.c = 'U', .object = ultimateketchup_init, .surface = CASE_FLOOR_1},
+{.c = '\0'}
 },
-	levels: {
+	.levels = {
 	"rooms/01.ber",
 	"rooms/02.ber",
 	"rooms/03.ber",
@@ -39,13 +39,13 @@ const t_consts	g_consts = {
 	"rooms/09.ber",
 	"rooms/10.ber",
 },
-	assetsmap: {
+	.assetsmap = {
 {"floor/1", 50, 100, 50, 125, true},
 {"floor/2", 50, 100, 50, 125, true},
 	// WALL
 {"wall/border_top", 50, 100, 50, 125, true},
 {"wall/border_bottom", 50, 100, 50, 100, true},
-{"wall/inner", 50, 100, 30, 100, false},
+{"wall/inner", 50, 120, 30, 100, false},
 	// BRIDGE
 {"wall/bridge", 50, 100, 50, 125, false},
 	// OBJECTS
@@ -180,7 +180,7 @@ const t_consts	g_consts = {
 {"text/big/youwin", 0, 600, 0, 400, false},
 {"text/big/gameover", 0, 600, 0, 400, false},
 },
-	spritesmap: {
+	.spritesmap = {
 {WALL_BORDER_TOP, 50, 50, ANIMATION, 1, 1},
 {WALL_BORDER_BOTTOM, 50, 50, ANIMATION, 1, 1},
 {FLOOR_1, 50, 50, ANIMATION, 1, 1},

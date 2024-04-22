@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 19:50:16 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:45:46 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void	ultimateketchup_draw(t_object *obj, t_point p)
 t_object	ultimateketchup_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {solid_firsk: true, solid_snas: true,
-		init: ultimateketchup_init, loop: ultimateketchup_loop,
-		draw: ultimateketchup_draw, walk_through: NULL};
+		= {.solid_firsk = true, .solid_snas = true,
+		.init = ultimateketchup_init, .loop = ultimateketchup_loop,
+		.draw = ultimateketchup_draw, .walk_through = NULL};
 	t_object							r;
 	t_ultimateketchup_data				*data;
 

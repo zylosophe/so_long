@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 17:35:13 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/18 18:30:25 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:43:44 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	path_map_case_init(t_point p, void **el, void *args_p)
 	const t_sprite					*surface
 		= &room.surfaces[p.y * room.width + p.x];
 	const t_path_map_case			r = {
-		to_check: false,
-		before: point_init(-1, -1),
-		solid: p.x == 0 || p.x == room.width - 1 || p.y == 0
+		.to_check = false,
+		.before = point_init(-1, -1),
+		.solid = p.x == 0 || p.x == room.width - 1 || p.y == 0
 		|| p.y == room.height - 1 || (
 			obj && ((args->for_firsk && obj->type.solid_firsk)
 				|| (!args->for_firsk && obj->type.solid_snas)))

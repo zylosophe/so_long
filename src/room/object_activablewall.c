@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 16:09:40 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:44:28 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static bool	activablewall_walk_through(
 t_object	activablewall_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {solid_firsk: false, solid_snas: false,
-		init: activablewall_init, loop: activablewall_loop,
-		draw: activablewall_draw, walk_through: activablewall_walk_through};
+		= {.solid_firsk = false, .solid_snas = false,
+		.init = activablewall_init, .loop = activablewall_loop,
+		.draw = activablewall_draw, .walk_through = activablewall_walk_through};
 	t_object							r;
 	t_wall_data							*data;
 

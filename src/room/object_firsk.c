@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 13:55:04 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 16:17:08 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:45:11 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ static void	firsk_draw(t_object *obj, t_point p)
 t_object	firsk_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {solid_firsk: false, solid_snas: false,
-		init: firsk_init, loop: firsk_loop, draw: firsk_draw,
-		walk_through: NULL};
+		= {.solid_firsk = false, .solid_snas = false,
+		.init = firsk_init, .loop = firsk_loop, .draw = firsk_draw,
+		.walk_through = NULL};
 	static const t_character_sprites	sprites = {
-		still: SPR_FIRSK,
-		walk_left: SPR_FIRSK_WALK_LEFT,
-		walk_right: SPR_FIRSK_WALK_RIGHT,
-		walk_up: SPR_FIRSK_WALK_UP,
-		walk_down: SPR_FIRSK_WALK_DOWN,
+		.still = SPR_FIRSK,
+		.walk_left = SPR_FIRSK_WALK_LEFT,
+		.walk_right = SPR_FIRSK_WALK_RIGHT,
+		.walk_up = SPR_FIRSK_WALK_UP,
+		.walk_down = SPR_FIRSK_WALK_DOWN,
 	};
 	t_object							r;
 	t_firsk_data						*data;

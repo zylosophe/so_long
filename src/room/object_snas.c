@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 15:27:03 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/21 16:30:38 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:45:37 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,15 @@ static void	snas_draw(t_object *obj, t_point p)
 t_object	snas_init(t_memclass mc)
 {
 	static const t_objecttype			type
-		= {solid_firsk: false, solid_snas: false,
-		init: snas_init, loop: snas_loop, draw: snas_draw,
-		walk_through: snas_walk_through};
+		= {.solid_firsk = false, .solid_snas = false,
+		.init = snas_init, .loop = snas_loop, .draw = snas_draw,
+		.walk_through = snas_walk_through};
 	static const t_character_sprites	sprites = {
-		still: SPR_SNAS,
-		walk_left: SPR_SNAS_WALK_LEFT,
-		walk_right: SPR_SNAS_WALK_RIGHT,
-		walk_up: SPR_SNAS_WALK_UP,
-		walk_down: SPR_SNAS_WALK_DOWN,
+		.still = SPR_SNAS,
+		.walk_left = SPR_SNAS_WALK_LEFT,
+		.walk_right = SPR_SNAS_WALK_RIGHT,
+		.walk_up = SPR_SNAS_WALK_UP,
+		.walk_down = SPR_SNAS_WALK_DOWN,
 	};
 	t_object							r;
 	t_snas_data							*data;

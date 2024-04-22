@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:19:19 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/19 17:32:16 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:43:20 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ static t_direction	pathfinding_checkdirections(
 t_direction	pathfinding(t_point start, t_point finish, bool for_firsk)
 {
 	const t_pathfinding_env	env = {
-		start: start,
-		finish: finish,
-		mc: mem_subclass(error_err, g_env.mc)
+		.start = start,
+		.finish = finish,
+		.mc = mem_subclass(error_err, g_env.mc)
 	};
 	t_path_map				map;
 	t_point					case_checking;
