@@ -1,0 +1,3 @@
+- Change sprites for top and bottom borders
+- Map conditions
+  - extension .ber
