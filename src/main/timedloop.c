@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:54:49 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/02 14:41:31 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/23 01:12:36 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static long	get_nanos(void)
 {
-	struct timespec	ts;
+	FILETIME	ft;
 
-	timespec_get(&ts, TIME_UTC);
-	return ((long)ts.tv_sec * 1000000000L + ts.tv_nsec);
+	GetSystemTimePreciseAsFileTime(&ft);
+	return (((unsigned long long)ft.dwHighDateTime << 32)| ft.dwLowDateTime);
 }
 
 void	timedloop(void (*f)(void))
