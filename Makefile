@@ -22,16 +22,16 @@ LIBRARIES = mlx libtf
 LIBRARIES_FILES = libtf/libtf.a
 LIBRARIES_LINK = mlx
 LINK = Xext X11 m z
-MORE_FLAGS +=
+MORE_FLAGS += -DXK_LATIN1 -DXK_MISCELLANY
 ##### END OF THE INTERESTING PART #####
 
 
 C_FILES = $(addsuffix .c,$(addprefix $(SRCS),$(CODE)))
 O_FILES = $(addsuffix .o,$(addprefix $(SRCS),$(CODE)))
 ifdef DEBUG
-CC = cc -Wall -Wextra -Werror -g $(MORE_FLAGS)
+CC = x86_64-w64-mingw32-gcc -Wall -Wextra -Werror -g $(MORE_FLAGS)
 else
-CC = cc -Wall -Wextra -Werror $(MORE_FLAGS)
+CC = x86_64-w64-mingw32-gcc -Wall -Wextra -Werror $(MORE_FLAGS)
 endif
 
 

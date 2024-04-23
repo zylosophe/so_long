@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 13:32:27 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:42:25 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdint.h>
-# include <X11/keysym.h>
-# include <X11/Xlib.h>
+# include "X11/keysym.h"
+# include "X11/Xlib.h"
 # include <errno.h>
 # include "libtf.h"
 # include "mlx.h"
