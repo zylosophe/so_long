@@ -1,55 +1,97 @@
-[![Build](https://github.com/42Paris/minilibx-linux/actions/workflows/ci.yml/badge.svg)](https://github.com/42Paris/minilibx-linux/actions/workflows/ci.yml)
-
-This is the MinilibX, a simple X-Window (X11R6) programming API
-in C, designed for students, suitable for X-beginners.
 
 
-Contents
+# SDL2 based minilibx port for Windows
+This port is based on the X11 based minilibx for linux of 42Paris school [https://github.com/42Paris/minilibx-linux/](https://github.com/42Paris/minilibx-linux/)
 
- - source code in C to create the mlx library
- - man pages (in man/ directory)
- - a test program (in test/ directory) is built
-   with the library
- - a public include file mlx.h
- - a tiny configure script to generate an appropriate Makefile.gen
+## Unofficial implementation
+The Minilibx was originally created by Olivier Crouzet (ol@42), this only is an implementation of it for Windows using the Simple DirectMedia Layer 2 library.
 
-Requirements for Linux
+The SDL2 is available for [  Microsoft Windows](https://fr.wikipedia.org/wiki/Microsoft_Windows "Microsoft Windows"),  [GNU/Linux](https://fr.wikipedia.org/wiki/GNU/Linux "GNU/Linux"),  [Android](https://fr.wikipedia.org/wiki/Android "Android"),  [macOS](https://fr.wikipedia.org/wiki/MacOS "MacOS"),  [iOS](https://fr.wikipedia.org/wiki/IOS "IOS"),  [FreeBSD](https://fr.wikipedia.org/wiki/FreeBSD "FreeBSD")  and [Haiku](https://fr.wikipedia.org/wiki/Haiku_(syst%C3%A8me_d%27exploitation) "Haiku (système d'exploitation)") so this port should probably be adaptable for all those OS without too much effort. 
 
- - MinilibX only support TrueColor visual type (8,15,16,24 or 32 bits depth)
- - gcc
- - make
- - X11 include files (package xorg)
- - XShm extension must be present (package libxext-dev)
- - Utility functions from BSD systems - development files (package libbsd-dev)
- - **e.g. _sudo apt-get install gcc make xorg libxext-dev libbsd-dev_ (Debian/Ubuntu)**
- 
-Requirements for MacOS
- - [Xquartz](https://www.xquartz.org/)
+However, I've only tested this for Windows.
 
-```bash
-➜  ~ Brew install Xquartz
-➜  ~ reboot
-➜  ~ xeyes # run an hello world X11 app
-```
+X11 events currently implemented/mapped :
 
-MlX Color Opacity / Transparency / Alpha (32 bits depth)
- - 0xFF (fully transparent) or 0x00 (fully opaque)
+    KeyPress
+    KeyRelease
+    ButtonPress
+    ButtonRelease
+    FocusIn
+    FocusOut
+    DestroyNotify
+    Expose
 
-Compile MinilibX
+If you need other events, feel free to make an issue or to map them yourself in mlx.c and making a pull request afterwards (please).
 
- - run ./configure or make
-   both will make a few tests, create Makefile.gen
-   and then automatically run make on this generated Makefile.gen .
-   libmlx.a and libmlx_$(HOSTTYPE).a are created.
-   test/mlx-test binary is also created.
+Fonctions currently implemented  :
 
+    void  *mlx_init(void);
+    
+    void  *mlx_new_image(void  *mlx_ptr, int  width, int  height);
+    char  *mlx_get_data_addr(void  *img_ptr, int  *bits_per_pixel,
+							    int  *size_line, int  *endian);
+    int  mlx_put_image_to_window(void  *mlx_ptr, void  *win_ptr, void  *img_ptr,
+								 int  x, int  y);
+    int  mlx_destroy_image(void  *mlx_ptr, void  *img_ptr);
+    int  mlx_clear_window(void  *mlx_ptr, void  *win_ptr);
+    
+    int  mlx_pixel_put(void  *mlx_ptr, void  *win_ptr, int  x, int  y,
+					    int  color);
+    
+    void  *mlx_new_window(void  *mlx_ptr, int  size_x, int  size_y, char  *title);
+    int  mlx_destroy_window(void  *mlx_ptr, void  *win_ptr);
+    
+    int  mlx_expose_hook (void  *win_ptr, int (*funct_ptr)(), void  *param);
+    int  mlx_mouse_hook (void  *win_ptr, int (*funct_ptr)(), void  *param);
+    int  mlx_key_hook (void  *win_ptr, int (*funct_ptr)(), void  *param);
+    int  mlx_hook(void  *win_ptr, int  x_event, int  x_mask,
+				    int (*funct)(), void  *param);
+    
+    int  mlx_loop_hook (void  *mlx_ptr, int (*funct_ptr)(), void  *param);
+    int  mlx_loop (void  *mlx_ptr);
+    
+    int  mlx_do_key_autorepeatoff(void  *mlx_ptr);
+    int  mlx_do_key_autorepeaton(void  *mlx_ptr);
+    
+    int  mlx_mouse_get_pos(void  *mlx_ptr, void  *win_ptr, int  *x, int  *y);
+    int  mlx_mouse_move(void  *mlx_ptr, void  *win_ptr, int  x, int  y);
+    int  mlx_mouse_hide(void  *mlx_ptr, void  *win_ptr);
+    int  mlx_mouse_show(void  *mlx_ptr, void  *win_ptr);
+    
+    int  mlx_get_screen_size(void  *mlx_ptr, int  *sizex, int  *sizey);
+    
+    void  *mlx_xpm_file_to_image(void  *mlx_ptr, char  *filename, int  *width, int  *height);
 
-Install MinilibX
+If you are interested in this port but need more features from the original mlx, please make an issue, if you do so hopefully I should be able to implement them pretty quickly.
 
- - no installation script is provided. You may want to install
-     - libmlx.a and/or libmlx_$(HOSTTYPE).a in /usr/X11/lib or /usr/local/lib
-     - mlx.h in /usr/X11/include or /usr/local/include
-     - man/man3/mlx*.1 in /usr/X11/man/man3 or /usr/local/man/man3
+## INSTALLATION
+You will need Mingw (Minimalist GNU for Windows) tools : 
+https://osdn.net/projects/mingw/releases/
+(which ports GNU GCC and GNU Make to Windows)
 
+Make in the project's root directory will compile the lib and a test executable
 
- Olivier CROUZET - 2014-01-06 -
+Lib path is `minilibx_sdl2/libmlx.a
+`
+
+You will need to place SDL2.dll, SDL2_image.dll next to your executable. (because i still don't understand how to change the path to these fucking dynamic libs (: )
+
+You'll need to compile with the following links :
+ `-L"$(MLX_DIRECTORY)/SDL/lib" -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lmingw32 -lSDL2main -luser32 -lgdi32 -lwinmm -ldxguid`
+
+## KNOWN BUG
+
+Some .xpm files (like small_gun.xpm from test pictures) can't be parsed by the SDL2 image module for a reason unknown to me, if you find an explanantion or a fix, please make an issue about it (that would be super awesome).
+
+## EPILEPSY WARNING
+
+The default test displays a rectangle changing colors at every frame.
+
+## CONTACT
+
+Feel free to contribute to the project by making issues, pull request, or by contacting me directly, any improvements or ideas are much welcome.
+
+You can contact me at :
+
+smaccary@student.42.fr
+

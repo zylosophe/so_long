@@ -2,9 +2,9 @@
 static char *_[] = {
 /* columns rows colors chars-per-pixel */
 "150 150 85 1 ",
-"  c black",
+"  c #000000",
 ". c #020303",
-"X c gray1",
+"X c #030303",
 "o c #030404",
 "O c #040505",
 "+ c #040606",
@@ -86,7 +86,7 @@ static char *_[] = {
 "/ c #B0E9E6",
 "( c #B9F4F1",
 ") c #C1FFFC",
-"_ c white",
+"_ c #ffffff",
 /* pixels */
 "______                                                      0$       @$                  @                                                    ________",
 "_____                                                       0$       @-  o               $                                                     _______",

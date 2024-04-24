@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 13:21:09 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/02/12 12:58:11 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/23 20:33:36 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	put_pointer(va_list args)
 		return (5);
 	}
 	write(1, "0x", 2);
-	str = ft_utoa_base((unsigned long)arg, "0123456789abcdef");
+	str = ft_utoa_base((unsigned long long)arg, "0123456789abcdef");
 	if (!str)
 		return (-1);
 	write(1, str, str_len(str));

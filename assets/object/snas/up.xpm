@@ -95,7 +95,7 @@ static char *up[] = {
 "}  c #D1D6DC",
 "|  c #DBE0E7",
 " . c #E5EAF1",
-".. c white",
+".. c #ffffff",
 /* pixels */
 "......                                                                                                                                                                                                                                                                                                ......",
 "....                                                                                                                                                                                                                                                                                                    ....",

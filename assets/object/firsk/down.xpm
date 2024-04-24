@@ -93,7 +93,7 @@ static char *down[] = {
 "[  c #E0E000",
 "{  c #EBEB00",
 "}  c #F5F500",
-"|  c yellow",
+"|  c #ffff00",
 " . c #003285",
 ".. c #00358E",
 "X. c #003894",
@@ -140,7 +140,7 @@ static char *down[] = {
 "h. c #9406FF",
 "j. c #9C00FF",
 "k. c #8210FF",
-"l. c white",
+"l. c #ffffff",
 /* pixels */
 "l.                                                                                                                                                                                                                                                                            l.l.l.l.l.l.l.l.l.l.l.l.l.l.l.",
 "                                                                                                                                                                                                                                                                                l.l.l.l.l.l.l.l.l.l.l.l.l.l.",

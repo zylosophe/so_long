@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 13:53:41 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/23 19:42:25 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/23 20:16:47 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <math.h>
 # include <fcntl.h>
-# include <time.h>
+# include <windows.h>
 # include <stdbool.h>
 # include <string.h>
 # include <stdlib.h>

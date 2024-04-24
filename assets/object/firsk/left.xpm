@@ -139,7 +139,7 @@ static char *left[] = {
 "g. c #9506FF",
 "h. c #9C00FF",
 "j. c #8210FF",
-"k. c white",
+"k. c #ffffff",
 /* pixels */
 "k.k.k.k.                                                                                                                                                                                      .                                                                                                           k.",
 "k.k.k.                                                                                                                                                                      .                                                                                                                               ",

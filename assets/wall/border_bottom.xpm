@@ -2,7 +2,7 @@
 static char *border_bottom[] = {
 /* columns rows colors chars-per-pixel */
 "150 150 1 1 ",
-"  c black",
+"  c #000000",
 /* pixels */
 "                                                                                                                                                      ",
 "                                                                                                                                                      ",

@@ -94,7 +94,7 @@ static char *walk_right_1[] = {
 "{  c #DEDE00",
 "}  c #E9E900",
 "|  c #F4F400",
-" . c yellow",
+" . c #ffff00",
 ".. c #B0CE4F",
 "X. c #391087",
 "o. c #023285",
@@ -138,7 +138,7 @@ static char *walk_right_1[] = {
 "f. c #9405FF",
 "g. c #9C00FF",
 "h. c #8210FF",
-"j. c white",
+"j. c #ffffff",
 /* pixels */
 "                                                                                                              z .                                                                                                                                                                                           ",
 "                                                                                                            . z .                                                     .                                                                                                                                     ",

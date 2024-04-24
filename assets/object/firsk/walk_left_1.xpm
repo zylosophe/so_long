@@ -137,7 +137,7 @@ static char *walk_left_1[] = {
 "d. c #9506FF",
 "f. c #9C00FF",
 "g. c #8210FF",
-"h. c white",
+"h. c #ffffff",
 /* pixels */
 "                                                                                                                                                                                              .                                                                                                             ",
 "                                                                                                                                                                                              .                                                                                                             ",

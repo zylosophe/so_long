@@ -114,7 +114,7 @@ static char *left[] = {
 ",. c #D1D6DC",
 "<. c #DBE0E7",
 "1. c #E5EAF1",
-"2. c white",
+"2. c #ffffff",
 /* pixels */
 "2.2.                                                                                                                                                                      O   X . X 8 1.                                                                                                                2.2.",
 "2.                                                                                                                                                                    X   O   X X   8 1.                                                                                                                  2.",

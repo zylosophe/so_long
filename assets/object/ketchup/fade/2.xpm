@@ -137,7 +137,7 @@ static char *_[] = {
 "d. c #D3E7E8",
 "f. c #D3EFF0",
 "g. c #D3F1F2",
-"h. c white",
+"h. c #ffffff",
 /* pixels */
 "h.h.h.h.h.h.h.                                                                                                                                                                                                                                                                                h.h.h.h.h.h.h.",
 "h.h.h.h.h.h.                                                                                                                                                                                                                                                                                    h.h.h.h.h.h.",

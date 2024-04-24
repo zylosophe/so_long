@@ -93,7 +93,7 @@ static char *walk_up_4[] = {
 "[ c #D1D6DC",
 "{ c #DBE0E7",
 "} c #E5EAF1",
-"| c white",
+"| c #ffffff",
 /* pixels */
 "|||                                                                                                                                                |||",
 "||                                                                                                                                                  ||",

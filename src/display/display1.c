@@ -6,7 +6,7 @@
 /*   By: mcolonna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:05:30 by mcolonna          #+#    #+#             */
-/*   Updated: 2024/04/20 15:00:02 by mcolonna         ###   ########.fr       */
+/*   Updated: 2024/04/23 20:48:18 by mcolonna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,5 @@ void	display_destroyall(void)
 	if (g_env.win)
 		mlx_destroy_window(g_env.mlx, g_env.win);
 	if (g_env.mlx)
-	{
-		mlx_destroy_display(g_env.mlx);
 		free(g_env.mlx);
-	}
 }

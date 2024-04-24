@@ -2,8 +2,8 @@
 static char *border_bottom_alpha[] = {
 /* columns rows colors chars-per-pixel */
 "150 150 2 1 ",
-"  c black",
-". c white",
+"  c #000000",
+". c #ffffff",
 /* pixels */
 "                                                                                                                                                      ",
 "                                                                                                                                                      ",

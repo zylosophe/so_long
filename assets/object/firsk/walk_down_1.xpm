@@ -91,7 +91,7 @@ static char *walk_down_1[] = {
 "'  c #E0E000",
 "]  c #EAEA00",
 "[  c #F5F500",
-"{  c yellow",
+"{  c #ffff00",
 "}  c #003285",
 "|  c #00358E",
 " . c #003894",
@@ -138,7 +138,7 @@ static char *walk_down_1[] = {
 "f. c #9406FF",
 "g. c #9C00FF",
 "h. c #8210FF",
-"j. c white",
+"j. c #ffffff",
 /* pixels */
 "j.                                                                                                                                                                                                                                                                            j.j.j.j.j.j.j.j.j.j.j.j.j.j.j.",
 "                                                                                                                                                                                                                                                                                j.j.j.j.j.j.j.j.j.j.j.j.j.j.",

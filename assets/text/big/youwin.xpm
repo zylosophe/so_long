@@ -2,7 +2,7 @@
 static char *youwin[] = {
 /* columns rows colors chars-per-pixel */
 "205 65 1 1 ",
-"  c white",
+"  c #ffffff",
 /* pixels */
 "                                                                                                                                                                                                             ",
 "                                                                                                                                                                                                             ",

@@ -19,9 +19,9 @@ CODE =	$(addprefix main/, \
 		) \
 		gameover/gameover
 LIBRARIES = mlx libtf
-LIBRARIES_FILES = libtf/libtf.a
-LIBRARIES_LINK = mlx
-LINK = Xext X11 m z
+LIBRARIES_FILES = libtf/libtf.a mlx/mlx.a
+LIBRARIES_LINK = mlx mlx/SDL/lib/
+LINK = m mingw32 SDL2main SDL2 SDL2_image SDL2_mixer SDL2_ttf mingw32 SDL2main gdi32 winmm dxguid
 MORE_FLAGS += -DXK_LATIN1 -DXK_MISCELLANY
 ##### END OF THE INTERESTING PART #####
 
@@ -58,7 +58,7 @@ debug :
 
 $(NAME) : $(O_FILES) $(LIBRARIES)
 	@echo "\e[30;47;1m  $(NAME): linking...  \e[0m"
-	$(CC) -o $(NAME) $(O_FILES) $(addprefix -L ,$(LIBRARIES_LINK)) $(addprefix -l ,$(LIBRARIES_LINK) $(LINK)) $(LIBRARIES_FILES)
+	$(CC) -o $(NAME) $(O_FILES) $(addprefix -L ,$(LIBRARIES_LINK)) $(addprefix -l ,$(LINK)) $(LIBRARIES_FILES)
 	@echo "\e[30;47;1m  $(NAME): linked!  \e[0m"
 
 $(LIBRARIES) :

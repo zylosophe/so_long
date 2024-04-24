@@ -129,7 +129,7 @@ static char *walk_up_3[] = {
 "r. c #9406FF",
 "t. c #9C00FF",
 "y. c #8210FF",
-"u. c white",
+"u. c #ffffff",
 /* pixels */
 "u.u.u.u.u.u.u.u.u.u.u.u.u.u.                                                                                                                                                    .                                                                                                                         u.",
 "u.u.u.u.u.u.u.u.u.u.u.u.u.                                                                                                                                                      .                                                                                                                           ",

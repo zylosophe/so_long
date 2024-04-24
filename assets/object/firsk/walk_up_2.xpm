@@ -79,7 +79,7 @@ static char *walk_up_2[] = {
 "R  c #CACA00",
 "E  c #EAEA00",
 "W  c #F4F400",
-"Q  c yellow",
+"Q  c #ffff00",
 "!  c #2D1684",
 "~  c #092C84",
 "^  c #003284",
@@ -135,7 +135,7 @@ static char *walk_up_2[] = {
 "a. c #9406FF",
 "s. c #9C00FF",
 "d. c #8210FF",
-"f. c white",
+"f. c #ffffff",
 /* pixels */
 "f.f.f.f.f.f.f.f.f.f.f.f.f.f.                                                                                                                                                    .                                                                                                                         f.",
 "f.f.f.f.f.f.f.f.f.f.f.f.f.                                                                                                                                                                                                                                                                                  ",

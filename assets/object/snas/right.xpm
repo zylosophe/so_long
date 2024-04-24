@@ -119,7 +119,7 @@ static char *right[] = {
 "4. c #DADFE6",
 "5. c #DBE0E7",
 "6. c #E5EAF1",
-"7. c white",
+"7. c #ffffff",
 /* pixels */
 "7.7.                                                                                                                6.9 X   O   O                                                                                                                                                                       7.7.",
 "7.                                                                                                                  6.9 X   O   O   X                                                                                                                                                                     7.",

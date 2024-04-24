@@ -82,7 +82,7 @@ static char *up[] = {
 "Q  c #DFDF00",
 "!  c #EAEA00",
 "~  c #F4F400",
-"^  c yellow",
+"^  c #ffff00",
 "/  c #2D1684",
 "(  c #092C84",
 ")  c #003284",
@@ -137,7 +137,7 @@ static char *up[] = {
 "d. c #9406FF",
 "f. c #9C00FF",
 "g. c #8210FF",
-"h. c white",
+"h. c #ffffff",
 /* pixels */
 "h.h.h.h.h.h.h.h.h.h.h.h.h.h.                                                                                                                                                                                                                                                                              h.",
 "h.h.h.h.h.h.h.h.h.h.h.h.h.                                                                                                                                                    . .                                                                                                                           ",

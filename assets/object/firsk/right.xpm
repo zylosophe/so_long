@@ -93,7 +93,7 @@ static char *right[] = {
 "[  c #DEDE00",
 "{  c #E9E900",
 "}  c #F4F400",
-"|  c yellow",
+"|  c #ffff00",
 " . c #B0CE4F",
 ".. c #391087",
 "X. c #003282",
@@ -135,7 +135,7 @@ static char *right[] = {
 "a. c #9405FF",
 "s. c #9C01FF",
 "d. c #8210FF",
-"f. c white",
+"f. c #ffffff",
 /* pixels */
 "                                                                                                              c .                                               .                                                                                                                                           ",
 "                                                                                                            . c .                                                                                                                                                                                           ",

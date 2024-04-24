@@ -109,7 +109,7 @@ static char *walk_left_2[] = {
 "=. c #D1D6DC",
 "-. c #DBE0E7",
 ";. c #E5EAF1",
-":. c white",
+":. c #ffffff",
 /* pixels */
 ":.:.                                                                                                                                                                      O   O     8 ;.                                                                                                                :.:.",
 ":.                                                                                                                                                                    o   O   X o X 8 ;.                                                                                                                  :.",

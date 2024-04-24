@@ -118,7 +118,7 @@ static char *walk_right_1[] = {
 "3. c #DBE0E7",
 "4. c #E0E5EC",
 "5. c #E5EAF1",
-"6. c white",
+"6. c #ffffff",
 /* pixels */
 "6.6.                                                                                                                5.0 X   o   o   X                                                                                                                                                                   6.6.",
 "6.                                                                                                                  5.0   o o   o                                                                                                                                                                         6.",

@@ -2,7 +2,7 @@
 static char *explosion_part1_7_alpha[] = {
 /* columns rows colors chars-per-pixel */
 "100 141 139 2 ",
-"   c black",
+"   c #000000",
 ".  c #010101",
 "X  c #020202",
 "o  c #030303",
@@ -140,7 +140,7 @@ static char *explosion_part1_7_alpha[] = {
 "h. c #FCFCFC",
 "j. c #FDFDFD",
 "k. c #FEFEFE",
-"l. c white",
+"l. c #ffffff",
 /* pixels */
 "                                                                                                      2 4.l.4.<                                                                                         ",
 "                                                                                                      < 4.l.4.2                                                                                         ",

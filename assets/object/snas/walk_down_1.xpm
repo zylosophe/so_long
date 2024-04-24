@@ -112,7 +112,7 @@ static char *walk_down_1[] = {
 ":. c #DCE1E7",
 ">. c #DCE1E8",
 ",. c #E5EAF1",
-"<. c white",
+"<. c #ffffff",
 /* pixels */
 "<.<.<.<.<.<.                                                                                                                                                                                                                                                                                    <.<.<.<.<.<.",
 "<.<.<.<.<.                                                                                                                                                                                                                                                                                        <.<.<.<.<.",

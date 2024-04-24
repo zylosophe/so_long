@@ -2,9 +2,9 @@
 static char *border_top_alpha[] = {
 /* columns rows colors chars-per-pixel */
 "150 150 3 1 ",
-"  c black",
-". c gray84",
-"X c white",
+"  c #000000",
+". c #d6d6d6",
+"X c #ffffff",
 /* pixels */
 "                                                                                                                                                      ",
 "                                                                                                                                                      ",

@@ -20,10 +20,10 @@ O_FILES = $(addsuffix .o,$(addprefix $(SRCS),$(CODE)))
 PRINTF_C_FILES = $(addsuffix .c,$(addprefix $(PRINTF_SRCS),$(PRINTF_CODE)))
 PRINTF_O_FILES = $(addsuffix .o,$(addprefix $(PRINTF_SRCS),$(PRINTF_CODE)))
 ifdef DEBUG
-	CC = cc -Wall -Wextra -Werror -g
+	CC = x86_64-w64-mingw32-gcc -Wall -Wextra -Werror -g
 	FINISH_MSG = "| $(WHAT) compiled! (debug)"
 else
-	CC = cc -Wall -Wextra -Werror
+	CC = x86_64-w64-mingw32-gcc -Wall -Wextra -Werror
 	FINISH_MSG = "| $(WHAT) compiled!"
 endif
 AR = ar rcs
